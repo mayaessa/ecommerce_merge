@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useAxiosGet from "../../hooks/UseAxiosGet";
-
+// TEST GIT
 function StarRating({ rating }) {
   const rounded = Math.round(Number(rating) || 0);
   return (
