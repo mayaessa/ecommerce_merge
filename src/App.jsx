@@ -34,7 +34,10 @@ const router = createBrowserRouter([
       { path: "ProductDetails/:id", element: <ProductDetails /> },
     ],
   },
-]);
+],
+{
+    basename: "/ecommerce_merge",
+  });
 
 const App = () => {
   const { showSpinner } = useSpinner();
