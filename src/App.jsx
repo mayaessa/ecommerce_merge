@@ -17,11 +17,20 @@ import Layout from "./Layout/Layout";
 
 /* Global Snackbar */
 import AppSnackbar from "./Components/AppSnackbar";
+const ErrorPage = () => {
+  return (
+    <div style={{ padding: "40px", fontFamily: "Arial" }}>
+      <h2>Application Error</h2>
+      <p>Something went wrong.</p>
+    </div>
+  );
+};
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+          errorElement: <ErrorPage />,
     children: [
       { index: true, element: <HomePage /> },
       { path: "login", element: <Login /> },
