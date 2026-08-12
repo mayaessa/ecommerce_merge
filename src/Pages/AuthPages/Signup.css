@@ -1,80 +1,123 @@
-.signup-page{
-    padding:80px 0;
+
+.signup-page {
+  padding: 0;
+  width: 100%;
 }
 
-.signup-image{
-    width:100%;
+/* Image */
+.signup-image {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
 }
 
-.signup-box{
-    max-width:420px;
-    margin:auto;
+/* Form container */
+.signup-box {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
 }
 
-.signup-box h2{
-    font-size:36px;
-    font-weight:600;
-    margin-bottom:10px;
+/* Title */
+.signup-box h2 {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
-.signup-box p{
-    color:#555;
-    margin-bottom:30px;
+.signup-box p {
+  color: #555;
 }
 
-.signup-box input{
-    border:none;
-    border-bottom:1px solid #ccc;
-    border-radius:0;
-    padding:15px 5px;
-    box-shadow:none !important;
+/* Form */
+.signup-box form {
+  width: 100%;
 }
 
-.signup-box input:focus{
-    border-bottom:2px solid #DB4444;
+.signup-box .mb-4 {
+  width: 100%;
 }
 
-.create-btn{
-    background:#DB4444;
-    color:white;
-    padding:12px;
+/* Inputs */
+.signup-box input {
+  width: 100% !important;
+  display: block;
+  box-sizing: border-box;
+
+  border: none !important;
+  border-bottom: 1px solid #ccc !important;
+  border-radius: 0 !important;
+
+  padding: 15px 5px;
+  box-shadow: none !important;
+  outline: none;
 }
 
-.create-btn:hover{
-    background:#c33232;
-    color:white;
+.signup-box input:focus {
+  border-bottom: 2px solid #DB4444 !important;
 }
 
-.google-btn{
-    border:1px solid #ccc;
-    background:white;
-    padding:12px;
+/* Create button */
+.create-btn {
+  width: 100%;
+  background: #DB4444;
+  color: white;
+  padding: 12px;
+  border: none;
 }
 
-.google-btn img{
-    width:20px;
-    margin-right:10px;
+.create-btn:hover {
+  background: #c33232;
+  color: white;
 }
 
-.login-text{
-    text-align:center;
-    margin-top:30px;
+/* Login text */
+.login-text {
+  text-align: center;
+  margin-top: 30px;
 }
 
-.login-text a{
-    color:black;
-    font-weight:600;
-    margin-left:5px;
+.login-text a {
+  color: black;
+  font-weight: 600;
+  margin-left: 5px;
 }
 
-@media(max-width:992px){
+/* Tablet & Mobile */
+@media (max-width: 992px) {
 
-.signup-page{
-    padding:40px 20px;
+  .signup-page {
+    padding: 0 20px;
+  }
+
+  .signup-box {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .signup-box h2 {
+    font-size: 30px;
+  }
 }
 
-.signup-box{
-    max-width:100%;
+/* Small mobile */
+@media (max-width: 576px) {
+
+  .signup-page {
+    padding: 20px 15px;
+  }
+
+  .signup-box {
+    width: 100%;
+  }
+
+  .signup-box h2 {
+    font-size: 26px;
+  }
+
+  .signup-box input {
+    padding: 13px 5px;
+  }
 }
 
-}

@@ -1,41 +1,113 @@
+
 .login-page {
-    background: #fff;
+  background: #fff;
+  width: 100%;
+  padding: 0;
 }
 
+/* Image */
 .login-image {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
 }
 
+/* Login box */
 .login-box {
-    width: 380px;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
 }
 
+/* Title */
 .login-box h2 {
-    font-size: 36px;
-    margin-bottom: 10px;
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
+/* Form */
+.login-box form {
+  width: 100%;
+}
+
+.login-box .mb-4 {
+  width: 100%;
+}
+
+/* Inputs */
 .login-box input {
-    padding: 15px 0;
-    font-size: 15px;
+  width: 100% !important;
+  display: block;
+  box-sizing: border-box;
+
+  border: none !important;
+  border-bottom: 1px solid #ccc !important;
+  border-radius: 0 !important;
+
+  padding: 15px 5px;
+  font-size: 15px;
+  box-shadow: none !important;
+  outline: none;
 }
 
 .login-box input::placeholder {
-    color: #999;
+  color: #999;
 }
 
 .login-box input:focus {
-    border-color: #000 !important;
-    box-shadow: none;
+  border-bottom: 2px solid #000 !important;
+  box-shadow: none !important;
 }
 
-.btn-danger {
-    background: #db4444;
-    border: none;
+/* Login button */
+.login-box .btn-danger {
+  background: #DB4444;
+  border: none;
 }
 
-.btn-danger:hover {
-    background: #c73434;
+.login-box .btn-danger:hover {
+  background: #C73434;
 }
+
+/* Mobile */
+@media (max-width: 992px) {
+
+  .login-page {
+    padding: 0 20px;
+  }
+
+  .login-box {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .login-box h2 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+
+  .login-page {
+    padding: 20px 15px;
+  }
+
+  .login-box h2 {
+    font-size: 26px;
+  }
+
+  .login-box input {
+    padding: 13px 5px;
+  }
+
+  .login-box .d-flex {
+    flex-wrap: wrap;
+  }
+
+  .login-box .btn-danger {
+    width: 100%;
+  }
+}
+
