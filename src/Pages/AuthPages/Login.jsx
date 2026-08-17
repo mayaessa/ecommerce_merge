@@ -1,18 +1,22 @@
-
 import React, { useState } from "react";
-import Swal from "sweetalert2";
 import "./Login.css";
+
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 import { useAuth } from "./AuthContext";
 import { callApiPost } from "../../services/http";
 import { useSpinner } from "./SpinnerContext";
 
 const Login = () => {
+  const { t } = useTranslation();
+
   const { login } = useAuth();
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const [formError, setFormError] = useState(null);
   const [lockButton, setLockButton] = useState(false);
 
@@ -22,7 +26,7 @@ const Login = () => {
     e.preventDefault();
 
     if (!email || !password) {
-      setFormError("الرجاء إدخال البريد الإلكتروني وكلمة المرور");
+      setFormError(t("enterEmailPassword"));
       return;
     }
 
@@ -33,15 +37,28 @@ const Login = () => {
     try {
       const result = await callApiPost(
         "login",
-        { email, password },
-        (data) => data.message || "Login failed"
+        {
+          email,
+          password,
+        },
+        (data) => data.message || t("loginFailed")
       );
 
-      login(result.data.user);
-      navigate("/");
+      console.log("LOGIN RESPONSE:", result);
+
+      if (result?.data) {
+        login(
+          result.data.user,
+          result.data.access_token,
+          result.data.refresh_token
+        );
+
+        navigate("/");
+      }
     } catch (error) {
       setFormError(
-        error?.response?.data?.message || "البريد الإلكتروني أو كلمة المرور غير صحيحة"
+        error?.response?.data?.message ||
+        t("invalidCredentials")
       );
     } finally {
       hide();
@@ -56,8 +73,8 @@ const Login = () => {
         {/* Left Side */}
         <div className="col-lg-6 d-none d-lg-block p-0">
           <img
-            src="./assets/Side_Image.png"
-            alt="Login"
+            src={`${import.meta.env.BASE_URL}assets/Side_Image.png`}
+            alt={t("login")}
             className="login-image"
           />
         </div>
@@ -67,11 +84,11 @@ const Login = () => {
           <div className="login-box">
 
             <h2 className="fw-bold mb-2">
-              Log in to Exclusive
+              {t("loginToExclusive")}
             </h2>
 
             <p className="text-muted small mb-5">
-              Enter your details below
+              {t("enterDetails")}
             </p>
 
             <form onSubmit={handleSubmit}>
@@ -80,7 +97,7 @@ const Login = () => {
                 <input
                   type="email"
                   className="form-control"
-                  placeholder="Email or Phone Number"
+                  placeholder={t("emailOrPhone")}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   autoComplete="email"
@@ -93,7 +110,7 @@ const Login = () => {
                   type="password"
                   minLength={6}
                   className="form-control"
-                  placeholder="Password"
+                  placeholder={t("password")}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   autoComplete="current-password"
@@ -107,14 +124,16 @@ const Login = () => {
                   type="submit"
                   disabled={lockButton}
                 >
-                  {lockButton ? "Logging in..." : "Log In"}
+                  {lockButton
+                    ? t("loggingIn")
+                    : t("login")}
                 </button>
 
                 <Link
                   to="/forgot-password"
                   className="text-danger text-decoration-none"
                 >
-                  Forget Password?
+                  {t("forgotPassword")}
                 </Link>
 
               </div>
@@ -136,4 +155,3 @@ const Login = () => {
 };
 
 export default Login;
-

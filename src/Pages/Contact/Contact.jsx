@@ -1,8 +1,10 @@
 import { useState } from "react";
-import Navbar from "../../Layout/NavBar";
+import { useTranslation } from "react-i18next";
 import "./Contact.css";
 
 function Contact() {
+  const { t } = useTranslation();
+
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -11,6 +13,7 @@ function Contact() {
   });
 
   const [errors, setErrors] = useState({});
+
 
   const handleChange = (e) => {
     setForm({
@@ -24,25 +27,27 @@ function Contact() {
     });
   };
 
+
   const validate = () => {
     let newErrors = {};
 
     if (!form.name.trim()) {
-      newErrors.name = "Name is required";
+      newErrors.name = t("nameRequired");
     }
 
     if (!form.email.trim()) {
-      newErrors.email = "Email is required";
+      newErrors.email = t("emailRequired");
     } else if (!/\S+@\S+\.\S+/.test(form.email)) {
-      newErrors.email = "Invalid email";
+      newErrors.email = t("invalidEmail");
     }
 
     if (!form.phone.trim()) {
-      newErrors.phone = "Phone is required";
+      newErrors.phone = t("phoneRequired");
     }
 
     return newErrors;
   };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -56,122 +61,181 @@ function Contact() {
 
     console.log(form);
 
-    setForm({ name: "", email: "", phone: "", message: "" });
+    setForm({
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    });
   };
 
+
   return (
-    <>
-      
+    <div className="contact-page">
+      <div className="container">
 
-      <div className="contact-page">
-        <div className="container">
+        <p className="breadcrumb-text">
+          {t("home")} / <span>{t("contact")}</span>
+        </p>
 
-          <p className="breadcrumb-text">
-            Home / <span>Cantact</span>
-          </p>
 
-          <div className="row contact-row">
+        <div className="row contact-row">
 
-            <div className="col-lg-4">
-              <div className="contact-info-box">
+          {/* Contact Information */}
 
-                <div className="info-item">
-                  <div className="info-icon">
-                    <i className="bi bi-telephone-fill"></i>
-                  </div>
-                  <h5>Call To Us</h5>
-                  <p>We are available 24/7, 7 days a week.</p>
-                  <p>Phone: +8801611112222</p>
+          <div className="col-lg-4">
+            <div className="contact-info-box">
+
+              <div className="info-item">
+
+                <div className="info-icon">
+                  <i className="bi bi-telephone-fill"></i>
                 </div>
 
-                <hr />
+                <h5>{t("callToUs")}</h5>
 
-                <div className="info-item">
-                  <div className="info-icon">
-                    <i className="bi bi-envelope-fill"></i>
-                  </div>
-                  <h5>Write To US</h5>
-                  <p>Fill out our form and we will contact you within 24 hours.</p>
-                  <p>Emails: customer@exclusive.com</p>
-                  <p>Emails: support@exclusive.com</p>
-                </div>
+                <p>
+                  {t("available247")}
+                </p>
+
+                <p>
+                  {t("phone")}: +8801611112222
+                </p>
 
               </div>
+
+
+              <hr />
+
+
+              <div className="info-item">
+
+                <div className="info-icon">
+                  <i className="bi bi-envelope-fill"></i>
+                </div>
+
+                <h5>{t("writeToUs")}</h5>
+
+                <p>
+                  {t("contactWithin24")}
+                </p>
+
+                <p>
+                  {t("emails")}: customer@exclusive.com
+                </p>
+
+                <p>
+                  {t("emails")}: support@exclusive.com
+                </p>
+
+              </div>
+
             </div>
+          </div>
 
-            <div className="col-lg-8">
-              <div className="contact-form-box">
-                <form onSubmit={handleSubmit}>
 
-                  <div className="row">
+          {/* Contact Form */}
 
-                    <div className="col-md-4">
-                      <input
-                        type="text"
-                        name="name"
-                        placeholder="Your Name *"
-                        className="form-control"
-                        value={form.name}
-                        onChange={handleChange}
-                      />
-                      {errors.name && (
-                        <small className="text-danger">{errors.name}</small>
-                      )}
-                    </div>
+          <div className="col-lg-8">
 
-                    <div className="col-md-4">
-                      <input
-                        type="email"
-                        name="email"
-                        placeholder="Your Email *"
-                        className="form-control"
-                        value={form.email}
-                        onChange={handleChange}
-                      />
-                      {errors.email && (
-                        <small className="text-danger">{errors.email}</small>
-                      )}
-                    </div>
+            <div className="contact-form-box">
 
-                    <div className="col-md-4">
-                      <input
-                        type="text"
-                        name="phone"
-                        placeholder="Your Phone *"
-                        className="form-control"
-                        value={form.phone}
-                        onChange={handleChange}
-                      />
-                      {errors.phone && (
-                        <small className="text-danger">{errors.phone}</small>
-                      )}
-                    </div>
+              <form onSubmit={handleSubmit}>
+
+                <div className="row">
+
+                  <div className="col-md-4">
+
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder={t("yourName")}
+                      className="form-control"
+                      value={form.name}
+                      onChange={handleChange}
+                    />
+
+                    {errors.name && (
+                      <small className="text-danger">
+                        {errors.name}
+                      </small>
+                    )}
 
                   </div>
 
-                  <textarea
-                    name="message"
-                    placeholder="Your Massage"
-                    className="form-control message-box mt-3"
-                    value={form.message}
-                    onChange={handleChange}
-                  ></textarea>
 
-                  <div className="text-end mt-3">
-                    <button type="submit" className="btn send-btn">
-                      Send Massage
-                    </button>
+                  <div className="col-md-4">
+
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder={t("yourEmail")}
+                      className="form-control"
+                      value={form.email}
+                      onChange={handleChange}
+                    />
+
+                    {errors.email && (
+                      <small className="text-danger">
+                        {errors.email}
+                      </small>
+                    )}
+
                   </div>
 
-                </form>
-              </div>
+
+                  <div className="col-md-4">
+
+                    <input
+                      type="text"
+                      name="phone"
+                      placeholder={t("yourPhone")}
+                      className="form-control"
+                      value={form.phone}
+                      onChange={handleChange}
+                    />
+
+                    {errors.phone && (
+                      <small className="text-danger">
+                        {errors.phone}
+                      </small>
+                    )}
+
+                  </div>
+
+                </div>
+
+
+                <textarea
+                  name="message"
+                  placeholder={t("yourMessage")}
+                  className="form-control message-box mt-3"
+                  value={form.message}
+                  onChange={handleChange}
+                ></textarea>
+
+
+                <div className="text-end mt-3">
+
+                  <button
+                    type="submit"
+                    className="btn send-btn"
+                  >
+                    {t("sendMessage")}
+                  </button>
+
+                </div>
+
+              </form>
+
             </div>
 
           </div>
 
         </div>
+
       </div>
-    </>
+    </div>
   );
 }
 

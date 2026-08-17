@@ -68,3 +68,108 @@
 .dropdown-item {
   text-decoration: none;
 }
+.navbar-actions {
+  flex-shrink: 0;
+}
+
+.navbar-search {
+  width: 240px;
+  height: 40px;
+}
+
+.navbar-icon {
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.language-select {
+  width: 145px !important;
+  min-width: 145px;
+  height: 40px;
+  padding: 0 10px !important;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* منع روابط النافبار من النزول لسطرين */
+.navbar-nav .nav-link {
+  white-space: nowrap;
+}
+
+/* Account */
+.account-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.account-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #db4444;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.account-dropdown {
+  position: absolute;
+  top: 48px;
+  right: 0;
+
+  width: 230px;
+  background: white;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+.account-dropdown .dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 15px;
+  color: #333;
+
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.account-dropdown .dropdown-item:hover {
+  background: #f5f5f5;
+}
+
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 991px) {
+
+  .navbar-actions {
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  .navbar-search {
+    width: 100%;
+  }
+
+  .language-select {
+    width: 145px !important;
+  }
+
+  .navbar-nav {
+    margin-top: 15px;
+  }
+
+}

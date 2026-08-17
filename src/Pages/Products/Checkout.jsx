@@ -1,5 +1,4 @@
 import {
-  Box,
   Breadcrumbs,
   Container,
   Grid,
@@ -7,10 +6,14 @@ import {
   Typography,
 } from "@mui/material";
 
+import { useTranslation } from "react-i18next";
+
 import BillingForm from "../../Components/BillingForm";
 import OrderSummary from "../../Components/OrderSummary";
 
 export default function Checkout() {
+  const { t } = useTranslation();
+
   return (
     <Container
       maxWidth="lg"
@@ -18,42 +21,50 @@ export default function Checkout() {
         py: 8,
       }}
     >
+
       <Breadcrumbs sx={{ mb: 6 }}>
+
         <Link underline="hover" color="inherit">
-          Account
+          {t("account")}
         </Link>
 
         <Link underline="hover" color="inherit">
-          My Account
+          {t("myAccount")}
         </Link>
 
         <Link underline="hover" color="inherit">
-          Product
+          {t("product")}
         </Link>
 
         <Link underline="hover" color="inherit">
-          View Cart
+          {t("viewCart")}
         </Link>
 
         <Typography fontWeight={600}>
-          CheckOut
+          {t("checkout")}
         </Typography>
+
       </Breadcrumbs>
 
       <Grid container spacing={10}>
+
         <Grid item xs={12} md={6}>
           <BillingForm />
         </Grid>
 
-        <Grid     item
-    xs={12}
-    md={6}
-    sx={{
-      mt: { md: 10 },
-    }}>
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{
+            mt: { md: 10 },
+          }}
+        >
           <OrderSummary />
         </Grid>
+
       </Grid>
+
     </Container>
   );
 }

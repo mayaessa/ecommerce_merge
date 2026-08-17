@@ -1,11 +1,14 @@
-
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 import "./Signup.css";
 import useAxiosPost from "../../hooks/UseAxiosPost";
 
 const Signup = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
   const { postData, loading } = useAxiosPost("register");
 
   const [form, setForm] = useState({
@@ -25,6 +28,7 @@ const Signup = () => {
       ...form,
       [e.target.name]: e.target.value,
     });
+
     setFormError(null);
   };
 
@@ -40,18 +44,18 @@ const Signup = () => {
       !form.password ||
       !form.password_confirmation
     ) {
-      setFormError("الرجاء تعبئة جميع الحقول");
+      setFormError(t("fillAllFields"));
       return;
     }
 
     if (form.password !== form.password_confirmation) {
-      setFormError("كلمتا المرور غير متطابقتين");
+      setFormError(t("passwordsNotMatch"));
       return;
     }
 
     const response = await postData(form);
 
-    if (response && response.status && response.status < 400) {
+    if (response?.status && response.status < 400) {
       navigate("/login");
     }
   }
@@ -63,8 +67,8 @@ const Signup = () => {
         {/* Image */}
         <div className="col-lg-6 d-none d-lg-block p-0">
           <img
-            src="./assets/Side_Image.png"
-            alt="Signup"
+            src={`${import.meta.env.BASE_URL}assets/Side_Image.png`}
+            alt={t("createAccount")}
             className="signup-image"
           />
         </div>
@@ -74,11 +78,11 @@ const Signup = () => {
           <div className="signup-box">
 
             <h2 className="fw-bold mb-2">
-              Create an account
+              {t("createAccount")}
             </h2>
 
             <p className="text-muted small mb-5">
-              Enter your details below
+              {t("enterDetails")}
             </p>
 
             <form onSubmit={handleSubmit}>
@@ -88,7 +92,7 @@ const Signup = () => {
                   type="text"
                   name="first_name"
                   className="form-control"
-                  placeholder="First Name"
+                  placeholder={t("firstName")}
                   value={form.first_name}
                   onChange={handleChange}
                 />
@@ -99,7 +103,7 @@ const Signup = () => {
                   type="text"
                   name="last_name"
                   className="form-control"
-                  placeholder="Last Name"
+                  placeholder={t("lastName")}
                   value={form.last_name}
                   onChange={handleChange}
                 />
@@ -110,7 +114,7 @@ const Signup = () => {
                   type="email"
                   name="email"
                   className="form-control"
-                  placeholder="Email"
+                  placeholder={t("email")}
                   value={form.email}
                   onChange={handleChange}
                   autoComplete="email"
@@ -122,7 +126,7 @@ const Signup = () => {
                   type="text"
                   name="phone_number"
                   className="form-control"
-                  placeholder="Phone Number"
+                  placeholder={t("phone")}
                   value={form.phone_number}
                   onChange={handleChange}
                 />
@@ -133,7 +137,7 @@ const Signup = () => {
                   type="text"
                   name="address"
                   className="form-control"
-                  placeholder="Address"
+                  placeholder={t("address")}
                   value={form.address}
                   onChange={handleChange}
                 />
@@ -145,7 +149,7 @@ const Signup = () => {
                   name="password"
                   minLength={6}
                   className="form-control"
-                  placeholder="Password"
+                  placeholder={t("password")}
                   value={form.password}
                   onChange={handleChange}
                   autoComplete="new-password"
@@ -158,7 +162,7 @@ const Signup = () => {
                   name="password_confirmation"
                   minLength={6}
                   className="form-control"
-                  placeholder="Confirm Password"
+                  placeholder={t("confirmPassword")}
                   value={form.password_confirmation}
                   onChange={handleChange}
                   autoComplete="new-password"
@@ -172,16 +176,19 @@ const Signup = () => {
                   type="submit"
                   disabled={loading}
                 >
-                  {loading ? "Creating..." : "Create Account"}
+                  {loading
+                    ? t("creating")
+                    : t("createAccount")}
                 </button>
 
                 <p className="text-center mt-4">
-                  Already have an account?{" "}
+                  {t("alreadyHaveAccount")}{" "}
+
                   <Link
                     to="/login"
                     className="text-danger text-decoration-none"
                   >
-                    Log in
+                    {t("login")}
                   </Link>
                 </p>
 
@@ -204,4 +211,3 @@ const Signup = () => {
 };
 
 export default Signup;
-

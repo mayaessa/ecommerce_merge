@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import {callApiGet} from "../../services/http"
+import { callApiGet } from "../../services/http";
+
 import {
-  Box,
   Breadcrumbs,
   Container,
   Grid,
@@ -10,24 +10,23 @@ import {
   Typography,
 } from "@mui/material";
 
+import { useTranslation } from "react-i18next";
 
 import ProductGallery from "../../Components/ProductGallery";
 import ProductInfo from "../../Components/ProductInfo";
-import RelatedProducts from "../../Components/RelatedProducts.jsx"
+import RelatedProducts from "../../Components/RelatedProducts.jsx";
 
 export default function ProductDetails() {
+  const { id } = useParams();
+  const { t } = useTranslation();
 
-    const { id } = useParams(); 
-    const [product, setProduct] = useState(null);
-    const [loading, setLoading] = useState(true);
-    console.log(id);
-  
+  const [product, setProduct] = useState(null);
+
   useEffect(() => {
     async function getProduct() {
       const response = await callApiGet(
         `product/${id}`,
-        // "HomePage",
-        (err) => err.message || "حدث خطأ"
+        (err) => err.message || t("error")
       );
 
       if (response) {
@@ -36,23 +35,27 @@ export default function ProductDetails() {
     }
 
     getProduct();
-  }, [id]);
+  }, [id, t]);
 
   if (!product) {
-    return <Typography>Loading...</Typography>;
+    return (
+      <Typography sx={{ p: 5 }}>
+        {t("loading")}
+      </Typography>
+    );
   }
-   
-     const sizes = [
+
+  const sizes = [
     ...new Set(
-      product.attributes
+      (product.attributes || [])
         .filter((item) => item.name === "size")
         .map((item) => item.value)
     ),
   ];
 
-    const colors = [
+  const colors = [
     ...new Set(
-      product.attributes
+      (product.attributes || [])
         .filter((item) => item.name === "color")
         .map((item) => item.value)
     ),
@@ -60,36 +63,41 @@ export default function ProductDetails() {
 
   return (
     <Container
-       maxWidth="lg"
-  sx={{
-    py: 8,
-  }}
+      maxWidth="lg"
+      sx={{
+        py: 8,
+      }}
     >
+
       <Breadcrumbs sx={{ mb: 7 }}>
+
         <Link underline="hover" color="inherit">
-          Account
+          {t("account")}
         </Link>
 
         <Link underline="hover" color="inherit">
-          Gaming
+          {t("gaming")}
         </Link>
 
         <Typography color="text.primary">
-          Havic HV G-92 Gamepad
+          {product.name}
         </Typography>
-       </Breadcrumbs>
 
-        <Container maxWidth="lg" sx={{ mt: 8 }}>
+      </Breadcrumbs>
+
+      <Container maxWidth="lg" sx={{ mt: 8 }}>
+
         <Grid container spacing={6}>
-            <Grid size={{ xs: 12, md: 7 }}>
+
+          <Grid size={{ xs: 12, md: 7 }}>
             <ProductGallery
               heroImage={product.hero_image}
               media={product.media}
             />
-            </Grid>
+          </Grid>
 
-            <Grid size={{ xs: 12, md: 5 }}>
-            <ProductInfo 
+          <Grid size={{ xs: 12, md: 5 }}>
+            <ProductInfo
               price={product.price}
               name={product.name}
               rating={Number(product.reviews)}
@@ -97,12 +105,14 @@ export default function ProductDetails() {
               description={product.description}
               sizes={sizes}
               colors={colors}
-           />
-            </Grid>
-        </Grid>
-        </Container>
+            />
+          </Grid>
 
-        <RelatedProducts />
+        </Grid>
+
+      </Container>
+
+      <RelatedProducts />
 
     </Container>
   );

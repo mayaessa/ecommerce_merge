@@ -10,6 +10,8 @@ import {
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 
+import { useTranslation } from "react-i18next";
+
 export default function ProductCard({
   image,
   title,
@@ -19,6 +21,8 @@ export default function ProductCard({
   rating = 5,
   reviews = 65,
 }) {
+  const { t } = useTranslation();
+
   return (
     <Card
       elevation={0}
@@ -78,6 +82,7 @@ export default function ProductCard({
         >
           <IconButton
             size="small"
+            aria-label={t("addToWishlist")}
             sx={{
               bgcolor: "#fff",
               width: 34,
@@ -93,6 +98,7 @@ export default function ProductCard({
 
           <IconButton
             size="small"
+            aria-label={t("viewProduct")}
             sx={{
               bgcolor: "#fff",
               width: 34,
@@ -110,7 +116,7 @@ export default function ProductCard({
         <Box
           component="img"
           src={image}
-          alt={title}
+          alt={title || t("product")}
           sx={{
             width: 150,
             objectFit: "contain",

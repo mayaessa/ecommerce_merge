@@ -1,14 +1,11 @@
 import axios from "axios";
-const baseURL = "https://ecommerce.monzeryshop.shop/api/";
-const lang = localStorage.getItem('i18nextLng')
 
+const baseURL = "https://ecommerce.monzeryshop.shop/api/";
 
 const privateAxios = axios.create({
   baseURL,
   headers: {
     "Content-Type": "application/x-www-form-urlencoded",
-    "Access-Control-Allow-Origin": "*",
-    "Accept-Language" : lang
   },
 });
 
@@ -16,25 +13,39 @@ const Axios = axios.create({
   baseURL,
   headers: {
     "Content-Type": "application/x-www-form-urlencoded",
-    "Access-Control-Allow-Origin": "*",
-    "Accept-Language" : lang
-
   },
 });
 
-// Add a request interceptor to privateAxios
+
+// اللغة + التوكن مع كل request
+const setHeaders = (config) => {
+  const lang = localStorage.getItem("i18nextLng") || "en";
+  const token = localStorage.getItem("token");
+
+  config.headers["Accept-Language"] = lang;
+
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+
+  return config;
+};
+
+
 privateAxios.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      // Set authorization header if token exists
-      config.headers.Authorization = `Bearer ${token}`;
-    }
-    return config;
+    return setHeaders(config);
   },
-  (error) => {
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
+
+
+Axios.interceptors.request.use(
+  (config) => {
+    return setHeaders(config);
+  },
+  (error) => Promise.reject(error)
+);
+
 
 export { privateAxios, Axios };

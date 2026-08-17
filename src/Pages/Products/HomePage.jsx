@@ -1,14 +1,34 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 import useAxiosGet from "../../hooks/UseAxiosGet";
 import useAxiosPost from "../../hooks/UseAxiosPost";
 import Countdown from "../../Components/Countdown";
 import ProductRow from "../../Components/ProductRow";
 import "./HomePage.css";
 
-
 const LOGO = `${import.meta.env.BASE_URL}assets/logo.png`;
 
+
+/* =========================
+   Image Fallback
+========================= */
+
+const handleImageError = (e) => {
+  if (e.currentTarget.dataset.fallback === "true") {
+    return;
+  }
+
+  e.currentTarget.dataset.fallback = "true";
+  e.currentTarget.onerror = null;
+  e.currentTarget.src = LOGO;
+};
+
+
+/* =========================
+   Star Rating
+========================= */
 
 function StarRating({ rating }) {
   const rounded = Math.round(Number(rating) || 0);
@@ -21,15 +41,21 @@ function StarRating({ rating }) {
           className={`bi ${
             i <= rounded ? "bi-star-fill" : "bi-star"
           } text-warning me-1`}
-        ></i>
+        />
       ))}
     </div>
   );
 }
 
 
+/* =========================
+   Product Card
+========================= */
+
 function ProductCard({ product }) {
-  const price = Number(product.price);
+  const { t } = useTranslation();
+
+  const price = Number(product.price) || 0;
   const discountRatio = Number(product.discount_ratio) || 0;
 
   const finalPrice =
@@ -65,21 +91,14 @@ function ProductCard({ product }) {
     e.preventDefault();
     e.stopPropagation();
 
-    const response = await toggleWishlist({}, `/${product.id}`);
+    const response = await toggleWishlist(
+      {},
+      `/${product.id}`
+    );
 
     if (response && response.status && response.status < 400) {
       setIsWishlisted((prev) => !prev);
     }
-  };
-
-
-  const handleImageError = (e) => {
-    if (e.currentTarget.src.endsWith("/assets/logo.png")) {
-      return;
-    }
-
-    e.currentTarget.onerror = null;
-    e.currentTarget.src = LOGO;
   };
 
 
@@ -110,7 +129,7 @@ function ProductCard({ product }) {
                 ? "bi-heart-fill text-danger"
                 : "bi-heart"
             }`}
-          ></i>
+          />
         </button>
 
 
@@ -132,7 +151,7 @@ function ProductCard({ product }) {
           onClick={handleAddToCart}
           disabled={addingToCart}
         >
-          {addingToCart ? "Adding..." : "Add To Cart"}
+          {addingToCart ? t("adding") : t("addToCart")}
         </button>
 
       </div>
@@ -141,7 +160,7 @@ function ProductCard({ product }) {
       <div className="pt-2">
 
         <h6 className="mb-2 hp-product-name">
-          {product.name}
+          {product.name || "Product"}
         </h6>
 
         <div className="d-flex gap-2 mb-1 flex-wrap">
@@ -166,7 +185,12 @@ function ProductCard({ product }) {
 }
 
 
+/* =========================
+   Home Page
+========================= */
+
 const HomePage = () => {
+  const { t } = useTranslation();
 
   const {
     data,
@@ -175,17 +199,21 @@ const HomePage = () => {
   } = useAxiosGet("HomePage");
 
 
+  /* Loading */
+
   if (loading) {
     return (
       <div
         className="d-flex justify-content-center align-items-center"
         style={{ minHeight: "400px" }}
       >
-        <p>Loading...</p>
+        <p>{t("loading")}</p>
       </div>
     );
   }
 
+
+  /* Error */
 
   if (error) {
     return (
@@ -193,7 +221,7 @@ const HomePage = () => {
         className="d-flex justify-content-center align-items-center"
         style={{ minHeight: "400px" }}
       >
-        <p>Could not load home page data.</p>
+        <p>{t("couldNotLoad")}</p>
       </div>
     );
   }
@@ -213,48 +241,37 @@ const HomePage = () => {
     homeData.featured_products || [];
 
 
-  // fallback للـ Hero
-  const handleHeroImageError = (e) => {
-    if (e.currentTarget.src.endsWith("/assets/logo.png")) {
-      return;
-    }
-
-    e.currentTarget.onerror = null;
-    e.currentTarget.src = LOGO;
-  };
-
-
   return (
     <div className="container py-4 hp-container">
 
 
-      {/* Hero */}
+      {/* HERO */}
 
-      {sliders[0] && (
+      {sliders.length > 0 && (
         <div className="hp-hero bg-dark text-white rounded mb-5 d-flex align-items-center justify-content-center">
 
           <img
-            src={sliders[0].image_path || LOGO}
+            src={sliders[0]?.image_path || LOGO}
             alt="hero"
             className="hp-hero-img"
-            onError={handleHeroImageError}
+            onError={handleImageError}
           />
 
         </div>
       )}
 
 
-      {/* Categories */}
+      {/* CATEGORIES */}
 
       {categories.length > 0 && (
         <section className="mb-5">
 
           <h5 className="text-danger mb-1">
-            Categories
+            {t("categories")}
           </h5>
 
           <h2 className="hp-section-title fw-bold mb-4">
-            Browse By Category
+            {t("browseCategory")}
           </h2>
 
 
@@ -273,10 +290,7 @@ const HomePage = () => {
                     src={cat.icon || LOGO}
                     alt={cat.name || "Category"}
                     className="hp-category-icon"
-                    onError={(e) => {
-                      e.currentTarget.onerror = null;
-                      e.currentTarget.src = LOGO;
-                    }}
+                    onError={handleImageError}
                   />
 
                   <p className="mb-0 mt-2 hp-category-name">
@@ -295,7 +309,7 @@ const HomePage = () => {
       )}
 
 
-      {/* Flash Sales */}
+      {/* FLASH SALES */}
 
       {flashSales.length > 0 && (
         <section className="mb-5">
@@ -305,13 +319,13 @@ const HomePage = () => {
             <div>
 
               <h5 className="text-danger mb-1">
-                Today's
+                {t("todays")}
               </h5>
 
               <div className="d-flex align-items-center gap-4 flex-wrap">
 
                 <h2 className="hp-section-title fw-bold mb-0">
-                  Flash Sales
+                  {t("flashSales")}
                 </h2>
 
                 <Countdown
@@ -344,17 +358,17 @@ const HomePage = () => {
       )}
 
 
-      {/* Best Selling */}
+      {/* BEST SELLING */}
 
       {bestSelling.length > 0 && (
         <section className="mb-5">
 
           <h5 className="text-danger mb-1">
-            This Month
+            {t("thisMonth")}
           </h5>
 
           <h2 className="hp-section-title fw-bold mb-4">
-            Best Selling Products
+            {t("bestSelling")}
           </h2>
 
 
@@ -377,17 +391,17 @@ const HomePage = () => {
       )}
 
 
-      {/* Explore Products */}
+      {/* EXPLORE PRODUCTS */}
 
       {exploreProducts.length > 0 && (
         <section className="mb-5">
 
           <h5 className="text-danger mb-1">
-            Our Products
+            {t("ourProducts")}
           </h5>
 
           <h2 className="hp-section-title fw-bold mb-4">
-            Explore Our Products
+            {t("exploreProducts")}
           </h2>
 
 
@@ -410,17 +424,17 @@ const HomePage = () => {
       )}
 
 
-      {/* New Arrival */}
+      {/* NEW ARRIVAL */}
 
       {newArrivals.length > 0 && (
         <section className="mb-5">
 
           <h5 className="text-danger mb-1">
-            Featured
+            {t("featured")}
           </h5>
 
           <h2 className="hp-section-title fw-bold mb-4">
-            New Arrival
+            {t("newArrival")}
           </h2>
 
 

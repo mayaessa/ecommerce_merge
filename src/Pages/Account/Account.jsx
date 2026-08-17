@@ -1,7 +1,10 @@
 import { useState } from "react";
 import "./Account.css";
+import { useTranslation } from "react-i18next";
 
 function Account() {
+  const { t } = useTranslation();
+
   const [form, setForm] = useState({
     firstName: "Maya",
     lastName: "Essa",
@@ -30,10 +33,11 @@ function Account() {
 
         <div className="account-top">
           <p className="breadcrumb-text">
-            Home / <span>My Account</span>
+            {t("home")} / <span>{t("myAccount")}</span>
           </p>
+
           <p className="welcome-text">
-            Welcome! <span>Md Rimel</span>
+            {t("welcome")} <span>Maya</span>
           </p>
         </div>
 
@@ -42,33 +46,40 @@ function Account() {
           <div className="col-lg-3">
             <div className="account-sidebar">
 
-              <h6>Manage My Account</h6>
+              <h6>{t("manageAccount")}</h6>
+
               <ul>
-                <li className="active">My Profile</li>
-                <li>Address Book</li>
-                <li>My Payment Options</li>
+                <li className="active">{t("myProfile")}</li>
+                <li>{t("addressBook")}</li>
+                <li>{t("paymentOptions")}</li>
               </ul>
 
-              <h6>My Orders</h6>
+              <h6>{t("myOrders")}</h6>
+
               <ul>
-                <li>My Returns</li>
-                <li>My Cancellations</li>
+                <li>{t("myReturns")}</li>
+                <li>{t("myCancellations")}</li>
               </ul>
 
-              <h6>My WishList</h6>
+              <h6>{t("myWishlist")}</h6>
 
             </div>
           </div>
 
           <div className="col-lg-9">
             <div className="account-form-box">
-              <h5 className="form-title">Edit Your Profile</h5>
+
+              <h5 className="form-title">
+                {t("editProfile")}
+              </h5>
 
               <form onSubmit={handleSubmit}>
 
                 <div className="row">
+
                   <div className="col-md-6">
-                    <label>First Name</label>
+                    <label>{t("firstName")}</label>
+
                     <input
                       type="text"
                       name="firstName"
@@ -79,7 +90,8 @@ function Account() {
                   </div>
 
                   <div className="col-md-6">
-                    <label>Last Name</label>
+                    <label>{t("lastName")}</label>
+
                     <input
                       type="text"
                       name="lastName"
@@ -90,7 +102,8 @@ function Account() {
                   </div>
 
                   <div className="col-md-6">
-                    <label>Email</label>
+                    <label>{t("email")}</label>
+
                     <input
                       type="email"
                       name="email"
@@ -101,7 +114,8 @@ function Account() {
                   </div>
 
                   <div className="col-md-6">
-                    <label>Address</label>
+                    <label>{t("address")}</label>
+
                     <input
                       type="text"
                       name="address"
@@ -110,14 +124,17 @@ function Account() {
                       onChange={handleChange}
                     />
                   </div>
+
                 </div>
 
-                <p className="password-title">Password Changes</p>
+                <p className="password-title">
+                  {t("passwordChanges")}
+                </p>
 
                 <input
                   type="password"
                   name="currentPassword"
-                  placeholder="Current Password"
+                  placeholder={t("currentPassword")}
                   className="form-control mb-3"
                   value={form.currentPassword}
                   onChange={handleChange}
@@ -126,7 +143,7 @@ function Account() {
                 <input
                   type="password"
                   name="newPassword"
-                  placeholder="New Passowrd"
+                  placeholder={t("newPassword")}
                   className="form-control mb-3"
                   value={form.newPassword}
                   onChange={handleChange}
@@ -135,22 +152,32 @@ function Account() {
                 <input
                   type="password"
                   name="confirmPassword"
-                  placeholder="Confirm New Password"
+                  placeholder={t("confirmNewPassword")}
                   className="form-control mb-3"
                   value={form.confirmPassword}
                   onChange={handleChange}
                 />
 
                 <div className="form-actions">
-                  <button type="button" className="btn cancel-btn">
-                    Cancel
+
+                  <button
+                    type="button"
+                    className="btn cancel-btn"
+                  >
+                    {t("cancel")}
                   </button>
-                  <button type="submit" className="btn save-btn">
-                    Save Changes
+
+                  <button
+                    type="submit"
+                    className="btn save-btn"
+                  >
+                    {t("saveChanges")}
                   </button>
+
                 </div>
 
               </form>
+
             </div>
           </div>
 
