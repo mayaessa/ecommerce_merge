@@ -8,6 +8,8 @@ import {
   Typography,
 } from "@mui/material";
 
+import { useTranslation } from "react-i18next";
+
 import monitor from "../../public/assets/Side_Image.png";
 import gamepad from "../../public/assets/Side_Image.png";
 
@@ -25,6 +27,8 @@ const items = [
 ];
 
 export default function OrderSummary() {
+  const { t } = useTranslation();
+
   return (
     <Box
       sx={{
@@ -33,25 +37,23 @@ export default function OrderSummary() {
         ml: "auto",
       }}
     >
-
       <Stack spacing={3}>
-
         {items.map((item) => (
           <Box
             key={item.name}
-                        sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    mb: 3,
-                }}
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              mb: 3,
+            }}
           >
             <Box
-                        sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 2,
-                }}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 2,
+              }}
             >
               <img
                 src={item.image}
@@ -64,46 +66,63 @@ export default function OrderSummary() {
               </Typography>
             </Box>
 
-            <Typography fontSize={15} >{item.total}</Typography>
+            <Typography fontSize={15}>
+              {item.total}
+            </Typography>
           </Box>
         ))}
-
       </Stack>
 
       <Box mt={4}>
-        <Row title="Subtotal:" value="$1750" />
+        <Row
+          title={t("subtotal")}
+          value="$1750"
+        />
+
         <Divider sx={{ my: 1.5 }} />
 
-        <Row title="Shipping:" value="Free" />
-        <Divider  sx={{ my: 1.5 }} />
+        <Row
+          title={t("shipping")}
+          value={t("free")}
+        />
 
-        <Row title="Total:" value="$1750" />
+        <Divider sx={{ my: 1.5 }} />
+
+        <Row
+          title={t("total")}
+          value="$1750"
+        />
       </Box>
 
-      <Box sx={{mt: 3,}}>
-
+      {/* Payment */}
+      <Box sx={{ mt: 3 }}>
         <Box
           sx={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-        }}
+          }}
         >
-          <Box     sx={{
-                display: "flex",
-                alignItems: "center",
-            }}>
-            <Radio     
-            size="small"
-            checked
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <Radio
+              size="small"
+              checked
             />
-            <Typography>Bank</Typography>
+
+            <Typography>
+              {t("bank")}
+            </Typography>
           </Box>
 
           <img
             src="/assets/payment.png"
             height={24}
-            alt=""
+            alt={t("paymentMethods")}
           />
         </Box>
 
@@ -113,18 +132,21 @@ export default function OrderSummary() {
           mt={2}
         >
           <Radio />
-          <Typography>Cash on delivery</Typography>
-        </Box>
 
+          <Typography>
+            {t("cashOnDelivery")}
+          </Typography>
+        </Box>
       </Box>
 
+      {/* Coupon */}
       <Box
         display="flex"
         gap={2}
         mt={4}
       >
         <TextField
-          placeholder="Coupon Code"
+          placeholder={t("couponCode")}
           size="small"
           sx={{ flex: 1 }}
         />
@@ -137,27 +159,28 @@ export default function OrderSummary() {
             textTransform: "none",
           }}
         >
-          Apply Coupon
+          {t("applyCoupon")}
         </Button>
       </Box>
 
+      {/* Place Order */}
       <Button
         variant="contained"
-       sx={{
-        mt: 4,
-        width: 170,
-        height: 50,
-        bgcolor: "#DB4444",
-        textTransform: "none",
-        boxShadow: "none",
-        "&:hover": {
-            bgcolor: "#C73B3B",
-        },
-       }}
-      >
-        Place Order
-      </Button>
+        sx={{
+          mt: 4,
+          width: 170,
+          height: 50,
+          bgcolor: "#DB4444",
+          textTransform: "none",
+          boxShadow: "none",
 
+          "&:hover": {
+            bgcolor: "#C73B3B",
+          },
+        }}
+      >
+        {t("placeOrder")}
+      </Button>
     </Box>
   );
 }
@@ -165,21 +188,23 @@ export default function OrderSummary() {
 function Row({ title, value }) {
   return (
     <Box
-         sx={{
+      sx={{
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
         py: 1.5,
       }}
     >
-      <Typography  fontSize={15}>{title}</Typography>
+      <Typography fontSize={15}>
+        {title}
+      </Typography>
 
-      <Typography       
-       fontSize={15}
+      <Typography
+        fontSize={15}
         fontWeight={500}
-        >
+      >
         {value}
-        </Typography>
+      </Typography>
     </Box>
   );
 }

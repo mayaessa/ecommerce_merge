@@ -22,46 +22,74 @@ const resources = {
       // =========================
       categories: "Categories",
       browseCategory: "Browse By Category",
+
       todays: "Today's",
       flashSales: "Flash Sales",
+
       thisMonth: "This Month",
       bestSelling: "Best Selling Products",
+
       ourProducts: "Our Products",
       exploreProducts: "Explore Our Products",
+
       featured: "Featured",
       newArrival: "New Arrival",
+
       addToCart: "Add To Cart",
       adding: "Adding...",
+
       loading: "Loading...",
+      error: "An error occurred",
       couldNotLoad: "Could not load home page data.",
+
+      addToWishlist: "Add to wishlist",
+      viewProduct: "View product",
+
+      product: "Product",
+      category: "Category",
 
       // =========================
       // Auth
       // =========================
       createAccount: "Create an account",
       enterDetails: "Enter your details below",
+
       firstName: "First Name",
       lastName: "Last Name",
+
       email: "Email",
       phone: "Phone Number",
       phoneNumber: "Phone Number",
+
       address: "Address",
+
       password: "Password",
       confirmPassword: "Confirm Password",
+
       creating: "Creating...",
+
       alreadyAccount: "Already have an account?",
+
       emailOrPhone: "Email or Phone Number",
+
       loggingIn: "Logging in...",
       forgotPassword: "Forget Password?",
+
       fillAllFields: "Please fill in all fields",
       passwordMismatch: "Passwords do not match",
+
       loginToExclusive: "Log in to Exclusive",
-      enterEmailPassword: "Please enter email and password",
+
+      enterEmailPassword:
+        "Please enter email and password",
+
       loginFailed: "Login failed",
-      invalidCredentials: "Invalid email or password",
+
+      invalidCredentials:
+        "Invalid email or password",
 
       // =========================
-      // Account Menu
+      // Account menu
       // =========================
       account: "Account",
       manageAccount: "Manage My Account",
@@ -71,21 +99,26 @@ const resources = {
       logout: "Logout",
 
       // =========================
-      // Account Page
+      // Account page
       // =========================
       myAccount: "My Account",
       welcome: "Welcome!",
+
       myProfile: "My Profile",
       addressBook: "Address Book",
       paymentOptions: "My Payment Options",
+
       myOrders: "My Orders",
       myReturns: "My Returns",
       myWishlist: "My WishList",
+
       editProfile: "Edit Your Profile",
+
       passwordChanges: "Password Changes",
       currentPassword: "Current Password",
       newPassword: "New Password",
       confirmNewPassword: "Confirm New Password",
+
       cancel: "Cancel",
       saveChanges: "Save Changes",
 
@@ -94,62 +127,20 @@ const resources = {
       // =========================
       cart: "Cart",
       viewCart: "View Cart",
-      couponCode: "Coupon Code",
-      applyCoupon: "Apply Coupon",
-      cartTotal: "Cart Total",
-      subtotal: "Subtotal",
-      shipping: "Shipping",
-      total: "Total",
-      proceedToCheckout: "Proceed to Checkout",
-      returnToShop: "Return To Shop",
-      updateCart: "Update Cart",
-      remove: "Remove",
 
       // =========================
       // Checkout
       // =========================
       checkout: "Checkout",
-      product: "Product",
-      billingDetails: "Billing Details",
-      companyName: "Company Name",
-      streetAddress: "Street Address",
-      apartment: "Apartment, floor, etc. (optional)",
-      townCity: "Town / City",
-      saveInformation: "Save this information for faster checkout next time",
-      placeOrder: "Place Order",
-      orderSummary: "Order Summary",
-      paymentMethod: "Payment Method",
-      cashOnDelivery: "Cash on Delivery",
-      bank: "Bank",
-      bankTransfer: "Bank Transfer",
 
       // =========================
       // Product Details
       // =========================
-      productDetails: "Product Details",
-      category: "Category",
       gaming: "Gaming",
-      inStock: "In Stock",
-      outOfStock: "Out of Stock",
-      reviews: "Reviews",
-      colors: "Colours",
-      size: "Size",
-      buyNow: "Buy Now",
-      quantity: "Quantity",
-      freeDelivery: "Free Delivery",
-      enterPostalCode: "Enter your postal code for Delivery",
-      error: "An error occurred",
-
-      // =========================
-      // Product Card
-      // =========================
-      addToWishlist: "Add to Wishlist",
-      viewProduct: "View Product",
 
       // =========================
       // About
       // =========================
-      aboutUs: "About Us",
       ourStory: "Our Story",
 
       storyText1:
@@ -162,34 +153,60 @@ const resources = {
       director: "Managing Director",
       designer: "Product Designer",
 
-      activeSellers: "Sellers active on our site",
-      monthlySales: "Monthly Product Sales",
-      activeCustomers: "Customers active on our site",
-      annualSales: "Annual gross sales on our site",
+      activeSellers:
+        "Sellers active on our site",
 
-      freeDeliveryDesc: "Free delivery for all orders over $140",
+      monthlySales:
+        "Monthly Product Sales",
 
-      customerService: "24/7 CUSTOMER SERVICE",
-      customerServiceDesc: "Friendly 24/7 customer support",
+      activeCustomers:
+        "Customers active on our site",
 
-      moneyGuarantee: "MONEY BACK GUARANTEE",
-      moneyGuaranteeDesc: "We return money within 30 days",
+      annualSales:
+        "Annual gross sales on our site",
+
+      freeDelivery:
+        "FREE AND FAST DELIVERY",
+
+      freeDeliveryDesc:
+        "Free delivery for all orders over $140",
+
+      customerService:
+        "24/7 CUSTOMER SERVICE",
+
+      customerServiceDesc:
+        "Friendly 24/7 customer support",
+
+      moneyGuarantee:
+        "MONEY BACK GUARANTEE",
+
+      moneyGuaranteeDesc:
+        "We return money within 30 days",
 
       // =========================
       // Contact
       // =========================
       callToUs: "Call To Us",
-      available247: "We are available 24/7, 7 days a week.",
+
+      available247:
+        "We are available 24/7, 7 days a week.",
+
       phoneLabel: "Phone",
+
       writeToUs: "Write To Us",
+
       contactFormDescription:
         "Fill out our form and we will contact you within 24 hours.",
+
       emails: "Emails",
+
       yourName: "Your Name *",
       yourEmail: "Your Email *",
       yourPhone: "Your Phone *",
       yourMessage: "Your Message",
+
       sendMessage: "Send Message",
+
       nameRequired: "Name is required",
       emailRequired: "Email is required",
       invalidEmail: "Invalid email",
@@ -199,19 +216,52 @@ const resources = {
       // Footer
       // =========================
       subscribe: "Subscribe",
-      getDiscount: "Get 10% off your first order",
-      enterEmail: "Enter your email",
+
+      getDiscount:
+        "Get 10% off your first order",
+
+      enterEmail:
+        "Enter your email",
+
       support: "Support",
-      loginRegister: "Login / Register",
+
+      loginRegister:
+        "Login / Register",
+
       wishlist: "Wishlist",
+
       shop: "Shop",
+
       quickLink: "Quick Link",
+
       privacyPolicy: "Privacy Policy",
+
       termsOfUse: "Terms Of Use",
+
       faq: "FAQ",
+
       downloadApp: "Download App",
-      saveApp: "Save $3 with App New User Only",
-      copyright: "© Copyright Rimel 2022. All right reserved",
+
+      saveApp:
+        "Save $3 with App New User Only",
+
+      copyright:
+        "© Copyright Rimel 2022. All right reserved",
+        days: "Days",
+hours: "Hours",
+minutes: "Minutes",
+seconds: "Seconds",
+
+subtotal: "Subtotal",
+shipping: "Shipping",
+free: "Free",
+total: "Total",
+bank: "Bank",
+cashOnDelivery: "Cash on delivery",
+paymentMethods: "Payment methods",
+couponCode: "Coupon Code",
+applyCoupon: "Apply Coupon",
+placeOrder: "Place Order",
     },
   },
 
@@ -234,49 +284,82 @@ const resources = {
       // Home
       // =========================
       categories: "التصنيفات",
-      browseCategory: "تصفح حسب التصنيف",
+      browseCategory: "تصفح التصنيفات",
+
       todays: "اليوم",
       flashSales: "العروض السريعة",
+
       thisMonth: "هذا الشهر",
       bestSelling: "المنتجات الأكثر مبيعاً",
+
       ourProducts: "منتجاتنا",
       exploreProducts: "استكشف منتجاتنا",
+
       featured: "مميز",
       newArrival: "وصل حديثاً",
+
       addToCart: "أضف إلى السلة",
       adding: "جاري الإضافة...",
+
       loading: "جاري التحميل...",
-      couldNotLoad: "تعذر تحميل بيانات الصفحة الرئيسية.",
+      error: "حدث خطأ",
+      couldNotLoad:
+        "تعذر تحميل بيانات الصفحة الرئيسية.",
+
+      addToWishlist: "أضف إلى قائمة الأمنيات",
+      viewProduct: "عرض المنتج",
+
+      product: "المنتج",
+      category: "التصنيف",
 
       // =========================
       // Auth
       // =========================
       createAccount: "إنشاء حساب",
       enterDetails: "أدخل بياناتك أدناه",
+
       firstName: "الاسم الأول",
       lastName: "اسم العائلة",
+
       email: "البريد الإلكتروني",
       phone: "رقم الهاتف",
       phoneNumber: "رقم الهاتف",
+
       address: "العنوان",
+
       password: "كلمة المرور",
       confirmPassword: "تأكيد كلمة المرور",
+
       creating: "جاري إنشاء الحساب...",
+
       alreadyAccount: "لديك حساب بالفعل؟",
-      emailOrPhone: "البريد الإلكتروني أو رقم الهاتف",
+
+      emailOrPhone:
+        "البريد الإلكتروني أو رقم الهاتف",
+
       loggingIn: "جاري تسجيل الدخول...",
+
       forgotPassword: "نسيت كلمة المرور؟",
-      fillAllFields: "الرجاء تعبئة جميع الحقول",
-      passwordMismatch: "كلمتا المرور غير متطابقتين",
-      loginToExclusive: "تسجيل الدخول إلى Exclusive",
+
+      fillAllFields:
+        "الرجاء تعبئة جميع الحقول",
+
+      passwordMismatch:
+        "كلمتا المرور غير متطابقتين",
+
+      loginToExclusive:
+        "تسجيل الدخول إلى Exclusive",
+
       enterEmailPassword:
         "الرجاء إدخال البريد الإلكتروني وكلمة المرور",
+
       loginFailed: "فشل تسجيل الدخول",
+
       invalidCredentials:
         "البريد الإلكتروني أو كلمة المرور غير صحيحة",
 
       // =========================
-      // Account Menu
+      // Account menu
       // =========================
       account: "الحساب",
       manageAccount: "إدارة حسابي",
@@ -286,21 +369,27 @@ const resources = {
       logout: "تسجيل الخروج",
 
       // =========================
-      // Account Page
+      // Account page
       // =========================
       myAccount: "حسابي",
       welcome: "مرحباً!",
+
       myProfile: "ملفي الشخصي",
       addressBook: "دفتر العناوين",
       paymentOptions: "خيارات الدفع",
+
       myOrders: "طلباتي",
       myReturns: "مرتجعاتي",
       myWishlist: "قائمة أمنياتي",
+
       editProfile: "تعديل الملف الشخصي",
+
       passwordChanges: "تغيير كلمة المرور",
       currentPassword: "كلمة المرور الحالية",
       newPassword: "كلمة المرور الجديدة",
-      confirmNewPassword: "تأكيد كلمة المرور الجديدة",
+      confirmNewPassword:
+        "تأكيد كلمة المرور الجديدة",
+
       cancel: "إلغاء",
       saveChanges: "حفظ التغييرات",
 
@@ -309,88 +398,59 @@ const resources = {
       // =========================
       cart: "السلة",
       viewCart: "عرض السلة",
-      couponCode: "رمز القسيمة",
-      applyCoupon: "تطبيق القسيمة",
-      cartTotal: "إجمالي السلة",
-      subtotal: "المجموع الفرعي",
-      shipping: "الشحن",
-      total: "الإجمالي",
-      proceedToCheckout: "المتابعة إلى الدفع",
-      returnToShop: "العودة إلى المتجر",
-      updateCart: "تحديث السلة",
-      remove: "حذف",
 
       // =========================
       // Checkout
       // =========================
       checkout: "إتمام الطلب",
-      product: "المنتج",
-      billingDetails: "تفاصيل الفاتورة",
-      companyName: "اسم الشركة",
-      streetAddress: "عنوان الشارع",
-      apartment: "الشقة، الطابق، إلخ. (اختياري)",
-      townCity: "المدينة",
-      saveInformation: "حفظ هذه المعلومات لتسريع عملية الدفع في المرة القادمة",
-      placeOrder: "تأكيد الطلب",
-      orderSummary: "ملخص الطلب",
-      paymentMethod: "طريقة الدفع",
-      cashOnDelivery: "الدفع عند الاستلام",
-      bank: "البنك",
-      bankTransfer: "تحويل بنكي",
 
       // =========================
       // Product Details
       // =========================
-      productDetails: "تفاصيل المنتج",
-      category: "التصنيف",
       gaming: "ألعاب",
-      inStock: "متوفر",
-      outOfStock: "غير متوفر",
-      reviews: "التقييمات",
-      colors: "الألوان",
-      size: "المقاس",
-      buyNow: "اشترِ الآن",
-      quantity: "الكمية",
-      freeDelivery: "توصيل مجاني",
-      enterPostalCode: "أدخل الرمز البريدي للتوصيل",
-      error: "حدث خطأ",
-
-      // =========================
-      // Product Card
-      // =========================
-      addToWishlist: "إضافة إلى قائمة الأمنيات",
-      viewProduct: "عرض المنتج",
 
       // =========================
       // About
       // =========================
-      aboutUs: "من نحن",
       ourStory: "قصتنا",
 
       storyText1:
         "تأسست Exclusive في عام 2015، وهي واحدة من أبرز منصات التسوق الإلكتروني في جنوب آسيا، مع حضور نشط في بنغلاديش. ومن خلال مجموعة واسعة من حلول التسويق والبيانات والخدمات المصممة خصيصاً، تضم Exclusive أكثر من 10,500 بائع و300 علامة تجارية، وتخدم أكثر من 3 ملايين عميل في المنطقة.",
 
       storyText2:
-        "توفر Exclusive أكثر من مليون منتج، وتنمو بوتيرة سريعة جداً. كما تقدم مجموعة متنوعة من المنتجات ضمن العديد من الفئات التي تشمل الإلكترونيات الاستهلاكية والأزياء.",
+        "توفر Exclusive أكثر من مليون منتج، وتنمو بوتيرة سريعة جداً، كما تقدم مجموعة متنوعة من المنتجات ضمن العديد من الفئات التي تشمل الإلكترونيات الاستهلاكية والأزياء وغيرها.",
 
       founder: "المؤسس ورئيس مجلس الإدارة",
       director: "المدير التنفيذي",
       designer: "مصمم المنتجات",
 
-      activeSellers: "بائع نشط على موقعنا",
-      monthlySales: "مبيعات المنتجات الشهرية",
-      activeCustomers: "عميل نشط على موقعنا",
-      annualSales: "إجمالي المبيعات السنوية على موقعنا",
+      activeSellers:
+        "بائع نشط على موقعنا",
 
-      freeDelivery: "توصيل مجاني وسريع",
+      monthlySales:
+        "مبيعات المنتجات الشهرية",
+
+      activeCustomers:
+        "عميل نشط على موقعنا",
+
+      annualSales:
+        "إجمالي المبيعات السنوية على موقعنا",
+
+      freeDelivery:
+        "توصيل مجاني وسريع",
+
       freeDeliveryDesc:
         "توصيل مجاني لجميع الطلبات التي تزيد عن 140$",
 
-      customerService: "خدمة العملاء على مدار الساعة",
+      customerService:
+        "خدمة العملاء على مدار الساعة",
+
       customerServiceDesc:
         "دعم عملاء ودود على مدار 24 ساعة",
 
-      moneyGuarantee: "ضمان استرداد الأموال",
+      moneyGuarantee:
+        "ضمان استرداد الأموال",
+
       moneyGuaranteeDesc:
         "نسترد الأموال خلال 30 يوماً",
 
@@ -398,18 +458,26 @@ const resources = {
       // Contact
       // =========================
       callToUs: "اتصل بنا",
+
       available247:
         "نحن متاحون على مدار الساعة طوال أيام الأسبوع.",
+
       phoneLabel: "الهاتف",
+
       writeToUs: "اكتب لنا",
+
       contactFormDescription:
         "املأ النموذج وسنتواصل معك خلال 24 ساعة.",
+
       emails: "البريد الإلكتروني",
+
       yourName: "اسمك *",
       yourEmail: "بريدك الإلكتروني *",
       yourPhone: "رقم هاتفك *",
       yourMessage: "رسالتك",
+
       sendMessage: "إرسال الرسالة",
+
       nameRequired: "الاسم مطلوب",
       emailRequired: "البريد الإلكتروني مطلوب",
       invalidEmail: "البريد الإلكتروني غير صالح",
@@ -419,20 +487,52 @@ const resources = {
       // Footer
       // =========================
       subscribe: "اشترك",
-      getDiscount: "احصل على خصم 10% على طلبك الأول",
-      enterEmail: "أدخل بريدك الإلكتروني",
+
+      getDiscount:
+        "احصل على خصم 10% على طلبك الأول",
+
+      enterEmail:
+        "أدخل بريدك الإلكتروني",
+
       support: "الدعم",
-      loginRegister: "تسجيل الدخول / إنشاء حساب",
+
+      loginRegister:
+        "تسجيل الدخول / إنشاء حساب",
+
       wishlist: "قائمة الأمنيات",
+
       shop: "المتجر",
+
       quickLink: "روابط سريعة",
+
       privacyPolicy: "سياسة الخصوصية",
+
       termsOfUse: "شروط الاستخدام",
+
       faq: "الأسئلة الشائعة",
+
       downloadApp: "تحميل التطبيق",
-      saveApp: "وفّر 3$ مع التطبيق للمستخدم الجديد فقط",
+
+      saveApp:
+        "وفّر 3$ مع التطبيق للمستخدم الجديد فقط",
+
       copyright:
         "© حقوق النشر محفوظة لـ Rimel 2022. جميع الحقوق محفوظة",
+        days: "يوم",
+hours: "ساعة",
+minutes: "دقيقة",
+seconds: "ثانية",
+
+subtotal: "المجموع الفرعي",
+shipping: "الشحن",
+free: "مجاني",
+total: "الإجمالي",
+bank: "الدفع البنكي",
+cashOnDelivery: "الدفع عند الاستلام",
+paymentMethods: "طرق الدفع",
+couponCode: "رمز القسيمة",
+applyCoupon: "تطبيق القسيمة",
+placeOrder: "تأكيد الطلب",
     },
   },
 
@@ -441,9 +541,7 @@ const resources = {
   // =====================================================
   de: {
     translation: {
-      // =========================
       // Navbar
-      // =========================
       home: "Startseite",
       contact: "Kontakt",
       about: "Über uns",
@@ -451,145 +549,144 @@ const resources = {
       login: "Anmelden",
       search: "Wonach suchen Sie?",
 
-      // =========================
       // Home
-      // =========================
       categories: "Kategorien",
       browseCategory: "Kategorien durchsuchen",
+
       todays: "Heute",
       flashSales: "Schnellangebote",
+
       thisMonth: "Diesen Monat",
       bestSelling: "Bestseller",
+
       ourProducts: "Unsere Produkte",
       exploreProducts: "Unsere Produkte entdecken",
+
       featured: "Empfohlen",
       newArrival: "Neu eingetroffen",
+
       addToCart: "In den Warenkorb",
       adding: "Wird hinzugefügt...",
+
       loading: "Wird geladen...",
+      error: "Ein Fehler ist aufgetreten",
+
       couldNotLoad:
         "Die Startseitendaten konnten nicht geladen werden.",
 
-      // =========================
+      addToWishlist:
+        "Zur Wunschliste hinzufügen",
+
+      viewProduct: "Produkt anzeigen",
+
+      product: "Produkt",
+      category: "Kategorie",
+
       // Auth
-      // =========================
       createAccount: "Konto erstellen",
-      enterDetails: "Geben Sie Ihre Daten unten ein",
+      enterDetails:
+        "Geben Sie Ihre Daten unten ein",
+
       firstName: "Vorname",
       lastName: "Nachname",
+
       email: "E-Mail",
       phone: "Telefonnummer",
       phoneNumber: "Telefonnummer",
+
       address: "Adresse",
+
       password: "Passwort",
-      confirmPassword: "Passwort bestätigen",
+      confirmPassword:
+        "Passwort bestätigen",
+
       creating: "Wird erstellt...",
-      alreadyAccount: "Sie haben bereits ein Konto?",
-      emailOrPhone: "E-Mail oder Telefonnummer",
+
+      alreadyAccount:
+        "Sie haben bereits ein Konto?",
+
+      emailOrPhone:
+        "E-Mail oder Telefonnummer",
+
       loggingIn: "Anmeldung...",
-      forgotPassword: "Passwort vergessen?",
-      fillAllFields: "Bitte füllen Sie alle Felder aus",
+
+      forgotPassword:
+        "Passwort vergessen?",
+
+      fillAllFields:
+        "Bitte füllen Sie alle Felder aus",
+
       passwordMismatch:
         "Die Passwörter stimmen nicht überein",
-      loginToExclusive: "Bei Exclusive anmelden",
+
+      loginToExclusive:
+        "Bei Exclusive anmelden",
+
       enterEmailPassword:
         "Bitte geben Sie E-Mail und Passwort ein",
-      loginFailed: "Anmeldung fehlgeschlagen",
+
+      loginFailed:
+        "Anmeldung fehlgeschlagen",
+
       invalidCredentials:
         "Ungültige E-Mail-Adresse oder ungültiges Passwort",
 
-      // =========================
-      // Account Menu
-      // =========================
+      // Account
       account: "Konto",
-      manageAccount: "Mein Konto verwalten",
+      manageAccount:
+        "Mein Konto verwalten",
+
       myOrder: "Meine Bestellungen",
-      myCancellations: "Meine Stornierungen",
+      myCancellations:
+        "Meine Stornierungen",
+
       myReviews: "Meine Bewertungen",
+
       logout: "Abmelden",
 
-      // =========================
-      // Account Page
-      // =========================
+      // Account page
       myAccount: "Mein Konto",
       welcome: "Willkommen!",
+
       myProfile: "Mein Profil",
       addressBook: "Adressbuch",
       paymentOptions: "Zahlungsoptionen",
+
       myOrders: "Meine Bestellungen",
       myReturns: "Meine Rücksendungen",
       myWishlist: "Meine Wunschliste",
-      editProfile: "Profil bearbeiten",
-      passwordChanges: "Passwort ändern",
-      currentPassword: "Aktuelles Passwort",
-      newPassword: "Neues Passwort",
-      confirmNewPassword: "Neues Passwort bestätigen",
+
+      editProfile:
+        "Profil bearbeiten",
+
+      passwordChanges:
+        "Passwort ändern",
+
+      currentPassword:
+        "Aktuelles Passwort",
+
+      newPassword:
+        "Neues Passwort",
+
+      confirmNewPassword:
+        "Neues Passwort bestätigen",
+
       cancel: "Abbrechen",
-      saveChanges: "Änderungen speichern",
+      saveChanges:
+        "Änderungen speichern",
 
-      // =========================
       // Cart
-      // =========================
       cart: "Warenkorb",
-      viewCart: "Warenkorb anzeigen",
-      couponCode: "Gutscheincode",
-      applyCoupon: "Gutschein anwenden",
-      cartTotal: "Warenkorbgesamtbetrag",
-      subtotal: "Zwischensumme",
-      shipping: "Versand",
-      total: "Gesamt",
-      proceedToCheckout: "Zur Kasse",
-      returnToShop: "Zum Shop zurückkehren",
-      updateCart: "Warenkorb aktualisieren",
-      remove: "Entfernen",
+      viewCart:
+        "Warenkorb anzeigen",
 
-      // =========================
       // Checkout
-      // =========================
       checkout: "Kasse",
-      product: "Produkt",
-      billingDetails: "Rechnungsdetails",
-      companyName: "Firmenname",
-      streetAddress: "Straßenadresse",
-      apartment: "Wohnung, Etage usw. (optional)",
-      townCity: "Stadt",
-      saveInformation:
-        "Diese Informationen für einen schnelleren Checkout speichern",
-      placeOrder: "Bestellung aufgeben",
-      orderSummary: "Bestellübersicht",
-      paymentMethod: "Zahlungsmethode",
-      cashOnDelivery: "Nachnahme",
-      bank: "Bank",
-      bankTransfer: "Banküberweisung",
 
-      // =========================
-      // Product Details
-      // =========================
-      productDetails: "Produktdetails",
-      category: "Kategorie",
+      // Product
       gaming: "Gaming",
-      inStock: "Auf Lager",
-      outOfStock: "Nicht auf Lager",
-      reviews: "Bewertungen",
-      colors: "Farben",
-      size: "Größe",
-      buyNow: "Jetzt kaufen",
-      quantity: "Menge",
-      freeDelivery: "Kostenlose Lieferung",
-      enterPostalCode:
-        "Postleitzahl für die Lieferung eingeben",
-      error: "Ein Fehler ist aufgetreten",
 
-      // =========================
-      // Product Card
-      // =========================
-      addToWishlist: "Zur Wunschliste hinzufügen",
-      viewProduct: "Produkt anzeigen",
-
-      // =========================
       // About
-      // =========================
-      aboutUs: "Über uns",
       ourStory: "Unsere Geschichte",
 
       storyText1:
@@ -598,72 +695,133 @@ const resources = {
       storyText2:
         "Exclusive bietet mehr als eine Million Produkte an und wächst sehr schnell. Das Unternehmen bietet eine vielfältige Auswahl an Kategorien, von Unterhaltungselektronik bis hin zu Mode.",
 
-      founder: "Gründer und Vorsitzender",
-      director: "Geschäftsführer",
-      designer: "Produktdesigner",
+      founder:
+        "Gründer und Vorsitzender",
+
+      director:
+        "Geschäftsführer",
+
+      designer:
+        "Produktdesigner",
 
       activeSellers:
         "Aktive Verkäufer auf unserer Website",
-      monthlySales: "Monatliche Produktverkäufe",
+
+      monthlySales:
+        "Monatliche Produktverkäufe",
+
       activeCustomers:
         "Aktive Kunden auf unserer Website",
+
       annualSales:
         "Jährlicher Bruttoumsatz auf unserer Website",
 
-      freeDelivery: "KOSTENLOSE UND SCHNELLE LIEFERUNG",
+      freeDelivery:
+        "KOSTENLOSE UND SCHNELLE LIEFERUNG",
+
       freeDeliveryDesc:
         "Kostenlose Lieferung für alle Bestellungen über 140 $",
 
-      customerService: "24/7 KUNDENSERVICE",
+      customerService:
+        "24/7 KUNDENSERVICE",
+
       customerServiceDesc:
         "Freundlicher Kundensupport rund um die Uhr",
 
-      moneyGuarantee: "GELD-ZURÜCK-GARANTIE",
+      moneyGuarantee:
+        "GELD-ZURÜCK-GARANTIE",
+
       moneyGuaranteeDesc:
         "Wir erstatten Ihr Geld innerhalb von 30 Tagen",
 
-      // =========================
       // Contact
-      // =========================
       callToUs: "Rufen Sie uns an",
+
       available247:
         "Wir sind rund um die Uhr, 7 Tage die Woche erreichbar.",
+
       phoneLabel: "Telefon",
-      writeToUs: "Schreiben Sie uns",
+
+      writeToUs:
+        "Schreiben Sie uns",
+
       contactFormDescription:
         "Füllen Sie unser Formular aus und wir kontaktieren Sie innerhalb von 24 Stunden.",
+
       emails: "E-Mails",
+
       yourName: "Ihr Name *",
       yourEmail: "Ihre E-Mail *",
       yourPhone: "Ihre Telefonnummer *",
       yourMessage: "Ihre Nachricht",
-      sendMessage: "Nachricht senden",
-      nameRequired: "Name ist erforderlich",
-      emailRequired: "E-Mail ist erforderlich",
-      invalidEmail: "Ungültige E-Mail",
+
+      sendMessage:
+        "Nachricht senden",
+
+      nameRequired:
+        "Name ist erforderlich",
+
+      emailRequired:
+        "E-Mail ist erforderlich",
+
+      invalidEmail:
+        "Ungültige E-Mail",
+
       phoneRequired:
         "Telefonnummer ist erforderlich",
 
-      // =========================
       // Footer
-      // =========================
       subscribe: "Abonnieren",
+
       getDiscount:
         "Erhalten Sie 10 % Rabatt auf Ihre erste Bestellung",
-      enterEmail: "E-Mail eingeben",
+
+      enterEmail:
+        "Geben Sie Ihre E-Mail-Adresse ein",
+
       support: "Support",
-      loginRegister: "Anmelden / Registrieren",
+
+      loginRegister:
+        "Anmelden / Registrieren",
+
       wishlist: "Wunschliste",
+
       shop: "Shop",
-      quickLink: "Schnellzugriff",
-      privacyPolicy: "Datenschutzrichtlinie",
-      termsOfUse: "Nutzungsbedingungen",
+
+      quickLink:
+        "Schnellzugriff",
+
+      privacyPolicy:
+        "Datenschutzrichtlinie",
+
+      termsOfUse:
+        "Nutzungsbedingungen",
+
       faq: "FAQ",
-      downloadApp: "App herunterladen",
+
+      downloadApp:
+        "App herunterladen",
+
       saveApp:
         "Sparen Sie 3 $ mit der App – nur für neue Benutzer",
+
       copyright:
         "© Copyright Rimel 2022. Alle Rechte vorbehalten",
+        days: "Tage",
+hours: "Stunden",
+minutes: "Minuten",
+seconds: "Sekunden",
+
+subtotal: "Zwischensumme",
+shipping: "Versand",
+free: "Kostenlos",
+total: "Gesamt",
+bank: "Bank",
+cashOnDelivery: "Nachnahme",
+paymentMethods: "Zahlungsmethoden",
+couponCode: "Gutscheincode",
+applyCoupon: "Gutschein anwenden",
+placeOrder: "Bestellung aufgeben",
     },
   },
 
@@ -672,9 +830,7 @@ const resources = {
   // =====================================================
   fr: {
     translation: {
-      // =========================
       // Navbar
-      // =========================
       home: "Accueil",
       contact: "Contact",
       about: "À propos",
@@ -682,176 +838,167 @@ const resources = {
       login: "Se connecter",
       search: "Que recherchez-vous ?",
 
-      // =========================
       // Home
-      // =========================
       categories: "Catégories",
-      browseCategory: "Parcourir les catégories",
+      browseCategory:
+        "Parcourir les catégories",
+
       todays: "Aujourd'hui",
       flashSales: "Ventes flash",
+
       thisMonth: "Ce mois-ci",
-      bestSelling: "Meilleures ventes",
+      bestSelling:
+        "Meilleures ventes",
+
       ourProducts: "Nos produits",
-      exploreProducts: "Découvrir nos produits",
+      exploreProducts:
+        "Découvrir nos produits",
+
       featured: "En vedette",
       newArrival: "Nouveautés",
-      addToCart: "Ajouter au panier",
+
+      addToCart:
+        "Ajouter au panier",
+
       adding: "Ajout...",
+
       loading: "Chargement...",
-      couldNotLoad:
-        "Impossible de charger les données de la page d'accueil.",
 
-      // =========================
-      // Auth
-      // =========================
-      createAccount: "Créer un compte",
-      enterDetails:
-        "Entrez vos informations ci-dessous",
-      firstName: "Prénom",
-      lastName: "Nom",
-      email: "E-mail",
-      phone: "Numéro de téléphone",
-      phoneNumber: "Numéro de téléphone",
-      address: "Adresse",
-      password: "Mot de passe",
-      confirmPassword: "Confirmer le mot de passe",
-      creating: "Création...",
-      alreadyAccount:
-        "Vous avez déjà un compte ?",
-      emailOrPhone:
-        "E-mail ou numéro de téléphone",
-      loggingIn: "Connexion...",
-      forgotPassword:
-        "Mot de passe oublié ?",
-      fillAllFields:
-        "Veuillez remplir tous les champs",
-      passwordMismatch:
-        "Les mots de passe ne correspondent pas",
-      loginToExclusive:
-        "Se connecter à Exclusive",
-      enterEmailPassword:
-        "Veuillez saisir votre e-mail et votre mot de passe",
-      loginFailed:
-        "Échec de la connexion",
-      invalidCredentials:
-        "E-mail ou mot de passe incorrect",
-
-      // =========================
-      // Account Menu
-      // =========================
-      account: "Compte",
-      manageAccount: "Gérer mon compte",
-      myOrder: "Mes commandes",
-      myCancellations: "Mes annulations",
-      myReviews: "Mes avis",
-      logout: "Se déconnecter",
-
-      // =========================
-      // Account Page
-      // =========================
-      myAccount: "Mon compte",
-      welcome: "Bienvenue !",
-      myProfile: "Mon profil",
-      addressBook: "Carnet d'adresses",
-      paymentOptions: "Options de paiement",
-      myOrders: "Mes commandes",
-      myReturns: "Mes retours",
-      myWishlist: "Ma liste de souhaits",
-      editProfile: "Modifier votre profil",
-      passwordChanges:
-        "Modifier le mot de passe",
-      currentPassword:
-        "Mot de passe actuel",
-      newPassword:
-        "Nouveau mot de passe",
-      confirmNewPassword:
-        "Confirmer le nouveau mot de passe",
-      cancel: "Annuler",
-      saveChanges:
-        "Enregistrer les modifications",
-
-      // =========================
-      // Cart
-      // =========================
-      cart: "Panier",
-      viewCart: "Voir le panier",
-      couponCode: "Code promo",
-      applyCoupon: "Appliquer le code",
-      cartTotal: "Total du panier",
-      subtotal: "Sous-total",
-      shipping: "Livraison",
-      total: "Total",
-      proceedToCheckout:
-        "Passer à la commande",
-      returnToShop:
-        "Retourner à la boutique",
-      updateCart:
-        "Mettre à jour le panier",
-      remove: "Supprimer",
-
-      // =========================
-      // Checkout
-      // =========================
-      checkout: "Paiement",
-      product: "Produit",
-      billingDetails:
-        "Détails de facturation",
-      companyName: "Nom de l'entreprise",
-      streetAddress:
-        "Adresse",
-      apartment:
-        "Appartement, étage, etc. (facultatif)",
-      townCity:
-        "Ville",
-      saveInformation:
-        "Enregistrer ces informations pour accélérer le paiement la prochaine fois",
-      placeOrder:
-        "Passer la commande",
-      orderSummary:
-        "Résumé de la commande",
-      paymentMethod:
-        "Mode de paiement",
-      cashOnDelivery:
-        "Paiement à la livraison",
-      bank: "Banque",
-      bankTransfer:
-        "Virement bancaire",
-
-      // =========================
-      // Product Details
-      // =========================
-      productDetails:
-        "Détails du produit",
-      category: "Catégorie",
-      gaming: "Jeux",
-      inStock: "En stock",
-      outOfStock:
-        "Rupture de stock",
-      reviews: "Avis",
-      colors: "Couleurs",
-      size: "Taille",
-      buyNow:
-        "Acheter maintenant",
-      quantity: "Quantité",
-      freeDelivery:
-        "Livraison gratuite",
-      enterPostalCode:
-        "Entrez votre code postal pour la livraison",
       error:
         "Une erreur s'est produite",
 
-      // =========================
-      // Product Card
-      // =========================
+      couldNotLoad:
+        "Impossible de charger les données de la page d'accueil.",
+
       addToWishlist:
         "Ajouter à la liste de souhaits",
+
       viewProduct:
         "Voir le produit",
 
-      // =========================
+      product: "Produit",
+      category: "Catégorie",
+
+      // Auth
+      createAccount:
+        "Créer un compte",
+
+      enterDetails:
+        "Entrez vos informations ci-dessous",
+
+      firstName: "Prénom",
+      lastName: "Nom",
+
+      email: "E-mail",
+      phone: "Numéro de téléphone",
+      phoneNumber:
+        "Numéro de téléphone",
+
+      address: "Adresse",
+
+      password: "Mot de passe",
+
+      confirmPassword:
+        "Confirmer le mot de passe",
+
+      creating: "Création...",
+
+      alreadyAccount:
+        "Vous avez déjà un compte ?",
+
+      emailOrPhone:
+        "E-mail ou numéro de téléphone",
+
+      loggingIn: "Connexion...",
+
+      forgotPassword:
+        "Mot de passe oublié ?",
+
+      fillAllFields:
+        "Veuillez remplir tous les champs",
+
+      passwordMismatch:
+        "Les mots de passe ne correspondent pas",
+
+      loginToExclusive:
+        "Se connecter à Exclusive",
+
+      enterEmailPassword:
+        "Veuillez saisir votre e-mail et votre mot de passe",
+
+      loginFailed:
+        "Échec de la connexion",
+
+      invalidCredentials:
+        "E-mail ou mot de passe incorrect",
+
+      // Account
+      account: "Compte",
+
+      manageAccount:
+        "Gérer mon compte",
+
+      myOrder: "Mes commandes",
+
+      myCancellations:
+        "Mes annulations",
+
+      myReviews: "Mes avis",
+
+      logout: "Se déconnecter",
+
+      // Account page
+      myAccount: "Mon compte",
+      welcome: "Bienvenue !",
+
+      myProfile: "Mon profil",
+
+      addressBook:
+        "Carnet d'adresses",
+
+      paymentOptions:
+        "Options de paiement",
+
+      myOrders: "Mes commandes",
+
+      myReturns: "Mes retours",
+
+      myWishlist:
+        "Ma liste de souhaits",
+
+      editProfile:
+        "Modifier votre profil",
+
+      passwordChanges:
+        "Modifier le mot de passe",
+
+      currentPassword:
+        "Mot de passe actuel",
+
+      newPassword:
+        "Nouveau mot de passe",
+
+      confirmNewPassword:
+        "Confirmer le nouveau mot de passe",
+
+      cancel: "Annuler",
+
+      saveChanges:
+        "Enregistrer les modifications",
+
+      // Cart
+      cart: "Panier",
+
+      viewCart:
+        "Voir le panier",
+
+      // Checkout
+      checkout: "Paiement",
+
+      // Product
+      gaming: "Jeux",
+
       // About
-      // =========================
-      aboutUs: "À propos de nous",
       ourStory:
         "Notre histoire",
 
@@ -863,100 +1010,142 @@ const resources = {
 
       founder:
         "Fondateur et président",
+
       director:
         "Directeur général",
+
       designer:
         "Designer produit",
 
       activeSellers:
         "Vendeurs actifs sur notre site",
+
       monthlySales:
         "Ventes mensuelles de produits",
+
       activeCustomers:
         "Clients actifs sur notre site",
+
       annualSales:
         "Ventes brutes annuelles sur notre site",
 
       freeDelivery:
         "LIVRAISON GRATUITE ET RAPIDE",
+
       freeDeliveryDesc:
         "Livraison gratuite pour toutes les commandes de plus de 140 $",
 
       customerService:
         "SERVICE CLIENT 24/7",
+
       customerServiceDesc:
         "Assistance client disponible 24h/24",
 
       moneyGuarantee:
         "GARANTIE DE REMBOURSEMENT",
+
       moneyGuaranteeDesc:
         "Nous remboursons votre argent sous 30 jours",
 
-      // =========================
       // Contact
-      // =========================
       callToUs:
         "Appelez-nous",
+
       available247:
         "Nous sommes disponibles 24h/24, 7 jours sur 7.",
+
       phoneLabel:
         "Téléphone",
+
       writeToUs:
         "Écrivez-nous",
+
       contactFormDescription:
         "Remplissez notre formulaire et nous vous contacterons dans les 24 heures.",
-      emails:
-        "E-mails",
+
+      emails: "E-mails",
+
       yourName:
         "Votre nom *",
+
       yourEmail:
         "Votre e-mail *",
+
       yourPhone:
         "Votre téléphone *",
+
       yourMessage:
         "Votre message",
+
       sendMessage:
         "Envoyer le message",
+
       nameRequired:
         "Le nom est obligatoire",
+
       emailRequired:
         "L'e-mail est obligatoire",
+
       invalidEmail:
         "E-mail invalide",
+
       phoneRequired:
         "Le numéro de téléphone est obligatoire",
 
-      // =========================
       // Footer
-      // =========================
       subscribe:
         "S'abonner",
+
       getDiscount:
         "Obtenez 10 % de réduction sur votre première commande",
+
       enterEmail:
         "Entrez votre e-mail",
-      support:
-        "Assistance",
+
+      support: "Assistance",
+
       loginRegister:
-        "Connexion / Inscription",
+        "Se connecter / S'inscrire",
+
       wishlist:
         "Liste de souhaits",
-      shop:
-        "Boutique",
+
+      shop: "Boutique",
+
       quickLink:
         "Liens rapides",
+
       privacyPolicy:
         "Politique de confidentialité",
+
       termsOfUse:
         "Conditions d'utilisation",
-      faq:
-        "FAQ",
+
+      faq: "FAQ",
+
       downloadApp:
         "Télécharger l'application",
+
       saveApp:
         "Économisez 3 $ avec l'application – nouveaux utilisateurs uniquement",
+
       copyright:
         "© Copyright Rimel 2022. Tous droits réservés",
+        days: "Jours",
+hours: "Heures",
+minutes: "Minutes",
+seconds: "Secondes",
+
+subtotal: "Sous-total",
+shipping: "Livraison",
+free: "Gratuit",
+total: "Total",
+bank: "Banque",
+cashOnDelivery: "Paiement à la livraison",
+paymentMethods: "Modes de paiement",
+couponCode: "Code promo",
+applyCoupon: "Appliquer le code",
+placeOrder: "Passer la commande",
     },
   },
 };
@@ -967,10 +1156,6 @@ const resources = {
 
 const savedLanguage =
   localStorage.getItem("i18nextLng") || "en";
-
-// =====================================================
-// i18n Configuration
-// =====================================================
 
 i18n
   .use(initReactI18next)
