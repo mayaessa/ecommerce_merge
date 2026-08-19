@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-
 import useAxiosGet from "../../hooks/UseAxiosGet";
 import useAxiosPost from "../../hooks/UseAxiosPost";
 import Countdown from "../../Components/Countdown";
 import ProductRow from "../../Components/ProductRow";
+import { useTranslation } from "react-i18next";
 import "./HomePage.css";
 
+// 
+// public/assets/logo.png
 const LOGO = `${import.meta.env.BASE_URL}assets/logo.png`;
 
 
@@ -16,6 +17,7 @@ const LOGO = `${import.meta.env.BASE_URL}assets/logo.png`;
 ========================= */
 
 const handleImageError = (e) => {
+  
   if (e.currentTarget.dataset.fallback === "true") {
     return;
   }
@@ -54,7 +56,6 @@ function StarRating({ rating }) {
 
 function ProductCard({ product }) {
   const { t } = useTranslation();
-
   const price = Number(product.price) || 0;
   const discountRatio = Number(product.discount_ratio) || 0;
 
@@ -109,6 +110,7 @@ function ProductCard({ product }) {
     >
       <div className="hp-product-image bg-light rounded d-flex align-items-center justify-content-center position-relative">
 
+        {/* Discount */}
         {discountRatio > 0 && (
           <span className="badge bg-danger position-absolute top-0 start-0 m-2">
             -{discountRatio}%
@@ -116,6 +118,7 @@ function ProductCard({ product }) {
         )}
 
 
+        {/* Wishlist */}
         <button
           type="button"
           className="hp-wishlist-btn"
@@ -133,6 +136,7 @@ function ProductCard({ product }) {
         </button>
 
 
+        {/* Product Image */}
         <img
           src={product.hero_image || LOGO}
           alt={product.name || "Product"}
@@ -145,6 +149,7 @@ function ProductCard({ product }) {
         />
 
 
+        {/* Add To Cart */}
         <button
           type="button"
           className="hp-add-cart-btn"
@@ -157,6 +162,7 @@ function ProductCard({ product }) {
       </div>
 
 
+      {/* Product Info */}
       <div className="pt-2">
 
         <h6 className="mb-2 hp-product-name">
@@ -198,9 +204,29 @@ const HomePage = () => {
     error,
   } = useAxiosGet("HomePage");
 
+  /* =========================
+     Category Filter
+  ========================= */
+  const [activeCategory, setActiveCategory] = useState(null);
+
+  const filterUrl = activeCategory
+    ? `products?category=${activeCategory.id}`
+    : null;
+
+  const {
+    data: filteredData,
+    loading: filteredLoading,
+    error: filteredError,
+  } = useAxiosGet(filterUrl);
+
+  const handleCategoryClick = (cat) => {
+    setActiveCategory((prev) => (prev?.id === cat.id ? null : cat));
+  };
+
+  const filteredProducts = filteredData?.data || [];
+
 
   /* Loading */
-
   if (loading) {
     return (
       <div
@@ -214,7 +240,6 @@ const HomePage = () => {
 
 
   /* Error */
-
   if (error) {
     return (
       <div
@@ -245,7 +270,9 @@ const HomePage = () => {
     <div className="container py-4 hp-container">
 
 
-      {/* HERO */}
+      {/* =========================
+          HERO
+      ========================= */}
 
       {sliders.length > 0 && (
         <div className="hp-hero bg-dark text-white rounded mb-5 d-flex align-items-center justify-content-center">
@@ -261,7 +288,9 @@ const HomePage = () => {
       )}
 
 
-      {/* CATEGORIES */}
+      {/* =========================
+          CATEGORIES
+      ========================= */}
 
       {categories.length > 0 && (
         <section className="mb-5">
@@ -284,7 +313,13 @@ const HomePage = () => {
                 key={cat.id}
               >
 
-                <div className="hp-category-card border rounded text-center">
+                <div
+                  className={`hp-category-card border rounded text-center ${
+                    activeCategory?.id === cat.id ? "active" : ""
+                  }`}
+                  role="button"
+                  onClick={() => handleCategoryClick(cat)}
+                >
 
                   <img
                     src={cat.icon || LOGO}
@@ -309,7 +344,57 @@ const HomePage = () => {
       )}
 
 
-      {/* FLASH SALES */}
+      {/* =========================
+          FILTERED BY CATEGORY
+      ========================= */}
+
+      {activeCategory && (
+        <section className="mb-5 hp-filtered-section">
+
+          <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+
+            <h2 className="hp-section-title fw-bold mb-0">
+              {activeCategory.name}
+            </h2>
+
+            <button
+              type="button"
+              className="btn btn-sm btn-outline-secondary"
+              onClick={() => setActiveCategory(null)}
+            >
+              <i className="bi bi-x-lg me-1"></i>
+              {t("clearFilter")}
+            </button>
+
+          </div>
+
+          {filteredLoading && <p>{t("loading")}</p>}
+
+          {filteredError && (
+            <p className="text-danger">{t("couldNotLoadCategoryProducts")}</p>
+          )}
+
+          {!filteredLoading && !filteredError && filteredProducts.length === 0 && (
+            <p className="text-muted">{t("noProductsInCategory")}</p>
+          )}
+
+          {!filteredLoading && filteredProducts.length > 0 && (
+            <div className="row">
+              {filteredProducts.map((p) => (
+                <div className="col-6 col-md-4 col-lg-3 mb-4" key={p.id}>
+                  <ProductCard product={p} />
+                </div>
+              ))}
+            </div>
+          )}
+
+        </section>
+      )}
+
+
+      {/* =========================
+          FLASH SALES
+      ========================= */}
 
       {flashSales.length > 0 && (
         <section className="mb-5">
@@ -358,7 +443,9 @@ const HomePage = () => {
       )}
 
 
-      {/* BEST SELLING */}
+      {/* =========================
+          BEST SELLING
+      ========================= */}
 
       {bestSelling.length > 0 && (
         <section className="mb-5">
@@ -391,7 +478,9 @@ const HomePage = () => {
       )}
 
 
-      {/* EXPLORE PRODUCTS */}
+      {/* =========================
+          EXPLORE PRODUCTS
+      ========================= */}
 
       {exploreProducts.length > 0 && (
         <section className="mb-5">
@@ -424,7 +513,9 @@ const HomePage = () => {
       )}
 
 
-      {/* NEW ARRIVAL */}
+      {/* =========================
+          NEW ARRIVAL
+      ========================= */}
 
       {newArrivals.length > 0 && (
         <section className="mb-5">

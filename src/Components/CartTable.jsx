@@ -15,9 +15,11 @@ import {
 } from "@mui/material";
 
 import CloseIcon from "@mui/icons-material/Close";
+import { useTranslation } from "react-i18next";
 
 import monitor from "../../public/assets/Side_Image.png";
 import gamepad from "../../public/assets/Side_Image.png";
+
 
 const items = [
   {
@@ -37,6 +39,8 @@ const items = [
 ];
 
 export default function CartTable() {
+  const { t } = useTranslation();
+
   return (
     <>
       <TableContainer
@@ -62,14 +66,14 @@ export default function CartTable() {
           <TableHead>
             <TableRow>
 
-              <TableCell sx={header}>Product</TableCell>
+              <TableCell sx={header}>{t("product")}</TableCell>
 
-              <TableCell sx={header}>Price</TableCell>
+              <TableCell sx={header}>{t("price")}</TableCell>
 
-              <TableCell sx={header}>Quantity</TableCell>
+              <TableCell sx={header}>{t("quantity")}</TableCell>
 
               <TableCell sx={header} align="right">
-                Subtotal
+                {t("subtotal")}
               </TableCell>
 
             </TableRow>
@@ -173,11 +177,11 @@ export default function CartTable() {
         }}
       >
         <Button sx={button}>
-          Return To Shop
+          {t("returnToShop")}
         </Button>
 
         <Button sx={button}>
-          Update Cart
+          {t("updateCart")}
         </Button>
       </Box>
     </>

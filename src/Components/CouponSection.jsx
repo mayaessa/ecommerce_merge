@@ -3,8 +3,11 @@ import {
   Button,
   TextField,
 } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 export default function CouponSection() {
+  const { t } = useTranslation();
+
   return (
     <Box
      sx={{
@@ -14,7 +17,7 @@ export default function CouponSection() {
     }}
     >
       <TextField
-        placeholder="Coupon Code"
+        placeholder={t("couponCode")}
         sx={{
            width: 300,
           "& .MuiOutlinedInput-root": {
@@ -39,7 +42,7 @@ export default function CouponSection() {
         },
         }}
       >
-        Apply Coupon
+        {t("applyCoupon")}
       </Button>
     </Box>
   );

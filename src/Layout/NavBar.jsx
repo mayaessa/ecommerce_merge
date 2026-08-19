@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useAuth } from "../Pages/AuthPages/AuthContext.jsx";
 import "./Navbar.css";
 
 function NavBar() {
@@ -8,6 +9,8 @@ function NavBar() {
   const [showNavbar, setShowNavbar] = useState(false);
 
   const { t, i18n } = useTranslation();
+  const { logout } = useAuth();
+  const navigate = useNavigate();
 
   const closeNavbar = () => {
     setShowNavbar(false);
@@ -19,6 +22,14 @@ function NavBar() {
 
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+
+    localStorage.setItem("i18nextLng", lang);
+  };
+
+  const handleLogout = () => {
+    logout();
+    closeNavbar();
+    navigate("/login");
   };
 
   return (
@@ -42,35 +53,53 @@ function NavBar() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className={`collapse navbar-collapse ${showNavbar ? "show" : ""}`}>
+        <div
+          className={`collapse navbar-collapse ${
+            showNavbar ? "show" : ""
+          }`}
+        >
 
           <ul className="navbar-nav mx-auto">
 
             <li className="nav-item">
-              <Link className="nav-link" to="/" onClick={closeNavbar}>
+              <Link
+                className="nav-link"
+                to="/"
+                onClick={closeNavbar}
+              >
                 {t("home")}
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" to="/contact" onClick={closeNavbar}>
+              <Link
+                className="nav-link"
+                to="/contact"
+                onClick={closeNavbar}
+              >
                 {t("contact")}
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" to="/about" onClick={closeNavbar}>
+              <Link
+                className="nav-link"
+                to="/about"
+                onClick={closeNavbar}
+              >
                 {t("about")}
               </Link>
             </li>
 
-
             <li className="nav-item">
-              <Link className="nav-link" to="/signup" onClick={closeNavbar}>
+              <Link
+                className="nav-link"
+                to="/signup"
+                onClick={closeNavbar}
+              >
                 {t("signup")}
               </Link>
             </li>
-
 
           </ul>
 
@@ -93,7 +122,9 @@ function NavBar() {
 
               <div
                 className="account-icon"
-                onClick={() => setShowAccountMenu(!showAccountMenu)}
+                onClick={() =>
+                  setShowAccountMenu(!showAccountMenu)
+                }
               >
                 <i className="bi bi-person-fill"></i>
               </div>
@@ -107,28 +138,33 @@ function NavBar() {
                     onClick={closeNavbar}
                   >
                     <i className="bi bi-person"></i>
-                    {t("navbar.manageAccount")}
+                    {t("manageAccount")}
                   </Link>
 
                   <div className="dropdown-item">
                     <i className="bi bi-bag-check"></i>
-                    {t("navbar.orders")}
+                    {t("myOrder")}
                   </div>
 
                   <div className="dropdown-item">
                     <i className="bi bi-x-circle"></i>
-                    {t("navbar.cancellations")}
+                    {t("myCancellations")}
                   </div>
 
                   <div className="dropdown-item">
                     <i className="bi bi-star"></i>
-                    {t("navbar.reviews")}
+                    {t("myReviews")}
                   </div>
 
-                  <div className="dropdown-item">
+                  {/* Logout */}
+                  <button
+                    type="button"
+                    className="dropdown-item border-0 bg-transparent w-100 text-start"
+                    onClick={handleLogout}
+                  >
                     <i className="bi bi-box-arrow-right"></i>
-                    {t("navbar.logout")}
-                  </div>
+                    {t("logout")}
+                  </button>
 
                 </div>
               )}

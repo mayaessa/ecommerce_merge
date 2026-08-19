@@ -1,69 +1,67 @@
 .hp-container {
-  width: 100%;
   overflow-x: hidden;
 }
 
-/* =========================
-   HERO
-========================= */
-
+/* Hero */
 .hp-hero {
-  min-height: 320px;
-  padding: 25px;
-  border-radius: 8px;
-  overflow: hidden;
+  min-height: 300px;
+  padding: 20px;
 }
 
 .hp-hero-img {
-  width: 100%;
-  max-height: 280px;
+  max-height: 260px;
+  max-width: 100%;
   object-fit: contain;
 }
 
-/* =========================
-   SECTION TITLES
-========================= */
+@media (max-width: 768px) {
+  .hp-hero {
+    min-height: 200px;
+    padding: 12px;
+  }
+  .hp-hero-img {
+    max-height: 160px;
+  }
+}
 
+/* Section titles */
 .hp-section-title {
   font-size: clamp(1.25rem, 4vw, 2rem);
-  font-weight: 600;
-  margin-bottom: 20px;
 }
 
-/* =========================
-   PRODUCT IMAGE
-========================= */
-
+/* Product cards */
 .hp-product-image {
   height: 250px;
-  position: relative;
-  overflow: hidden;
 }
-
-/* =========================
-   PRODUCT NAME
-========================= */
 
 .hp-product-name {
   font-size: 0.95rem;
-  font-weight: 500;
-  line-height: 1.4;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  min-height: 42px;
 }
 
-/* =========================
-   CATEGORIES
-========================= */
+@media (max-width: 576px) {
+  .hp-product-image {
+    height: 140px;
+  }
+  .hp-product-name {
+    font-size: 0.85rem;
+  }
+}
 
+@media (min-width: 577px) and (max-width: 768px) {
+  .hp-product-image {
+    height: 180px;
+  }
+}
+
+/* Categories */
 .hp-category-card {
   padding: 16px 8px;
   height: 100%;
-  border-radius: 8px;
   transition: 0.2s;
 }
 
@@ -81,47 +79,47 @@
   font-size: 0.8rem;
 }
 
-/* =========================
-   WISHLIST
-========================= */
+@media (max-width: 576px) {
+  .hp-category-card {
+    padding: 10px 4px;
+  }
+  .hp-category-icon {
+    width: 22px;
+    height: 22px;
+  }
+  .hp-category-name {
+    font-size: 0.7rem;
+  }
+}
 
+/* Wishlist heart button on product image */
 .hp-wishlist-btn {
   position: absolute;
   top: 8px;
   right: 8px;
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: #fff;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 5;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
 }
 
-/* =========================
-   ADD TO CART
-========================= */
-
+/* Add to cart button overlay at bottom of image */
 .hp-add-cart-btn {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-
-  width: 100%;
-
   background: #000;
   color: #fff;
-
   border: none;
-  padding: 9px;
-
+  padding: 8px;
   font-size: 0.85rem;
-  font-weight: 500;
-
   opacity: 0;
   transition: 0.2s;
 }
@@ -130,34 +128,33 @@
   opacity: 1;
 }
 
-/* =========================
-   COUNTDOWN
-========================= */
-
-.hp-countdown > div.text-center {
-  min-width: 35px;
+@media (max-width: 768px) {
+  /* عالموبايل ما في hover، فخليه ظاهر دايماً */
+  .hp-add-cart-btn {
+    opacity: 1;
+    position: static;
+    margin-top: 4px;
+    border-radius: 4px;
+  }
 }
 
-/* =========================
-   PRODUCT HORIZONTAL ROW
-========================= */
+/* Countdown */
+.hp-countdown > div.text-center {
+  min-width: 32px;
+}
 
+/* Horizontal scroll row with arrows */
 .hp-row-wrapper {
   position: relative;
-  width: 100%;
 }
 
 .hp-scroll-row {
   display: flex;
-  gap: 18px;
-
+  gap: 16px;
   overflow-x: auto;
-
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-
-  padding: 5px 4px 15px;
-
+  padding-bottom: 8px;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -172,360 +169,63 @@
   scroll-snap-align: start;
 }
 
-/* =========================
-   ARROWS
-========================= */
+@media (max-width: 576px) {
+  .hp-scroll-item {
+    width: 150px;
+  }
+}
 
 .hp-arrow {
   position: absolute;
-  top: 42%;
+  top: 40%;
   transform: translateY(-50%);
-
-  width: 38px;
-  height: 38px;
-
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: #fff;
   border: 1px solid #eee;
-
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-
+  box-shadow: 0 1px 6px rgba(0,0,0,0.12);
   display: flex;
   align-items: center;
   justify-content: center;
-
-  z-index: 10;
+  z-index: 3;
 }
 
 .hp-arrow-left {
-  left: -10px;
+  left: -8px;
 }
 
 .hp-arrow-right {
-  right: -10px;
+  right: -8px;
 }
-
-/* =====================================================
-   TABLET
-===================================================== */
-
-@media (max-width: 768px) {
-
-  .hp-container {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  .hp-hero {
-    min-height: 200px;
-    padding: 15px;
-    margin-bottom: 25px;
-  }
-
-  .hp-hero-img {
-    max-height: 170px;
-  }
-
-  .hp-section-title {
-    font-size: 1.35rem;
-    margin-bottom: 15px;
-  }
-
-  .hp-scroll-item {
-    width: 180px;
-  }
-
-  .hp-product-image {
-    height: 175px;
-  }
-
-  .hp-arrow {
-    width: 32px;
-    height: 32px;
-  }
-}
-
-/* =====================================================
-   MOBILE
-===================================================== */
 
 @media (max-width: 576px) {
-
-  .hp-container {
-    width: 100%;
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-
-  /* =====================
-     HERO
-  ===================== */
-
-  .hp-hero {
-    min-height: 155px;
-    padding: 8px;
-    margin-bottom: 25px;
-    border-radius: 6px;
-  }
-
-  .hp-hero-img {
-    width: 100%;
-    height: 145px;
-    max-height: none;
-    object-fit: contain;
-  }
-
-  /* =====================
-     SECTIONS
-  ===================== */
-
-  .hp-container section {
-    margin-bottom: 30px;
-  }
-
-  .hp-section-title {
-    font-size: 1.2rem;
-    margin-bottom: 14px;
-    line-height: 1.3;
-  }
-
-  /* =====================
-     PRODUCT ROW
-  ===================== */
-
-  .hp-scroll-row {
-    gap: 12px;
-    padding: 5px 3px 12px;
-  }
-
-  /*
-    حجم الكرت على الهاتف
-  */
-
-  .hp-scroll-item {
-    width: 165px;
-    min-width: 165px;
-  }
-
-  /* =====================
-     PRODUCT IMAGE
-  ===================== */
-
-  .hp-product-image {
-    height: 145px;
-    border-radius: 6px;
-
-    overflow: visible;
-
-    background: #f5f5f5;
-  }
-
-  /* صورة المنتج */
-
-  .hp-product-image img {
-    width: auto;
-    max-width: 82%;
-    height: 120px;
-    max-height: 120px;
-
-    object-fit: contain;
-  }
-
-  /* =====================
-     ADD TO CART
-  ===================== */
-
-  .hp-add-cart-btn {
-    position: absolute;
-
-    top: 100%;
-    bottom: auto;
-
-    left: 0;
-    right: 0;
-
-    width: 100%;
-    height: 34px;
-
-    margin: 0;
-
-    padding: 0 4px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #000;
-    color: #fff;
-
-    border: none;
-    border-radius: 0 0 5px 5px;
-
-    font-size: 0.72rem;
-    font-weight: 500;
-
-    opacity: 1;
-    z-index: 5;
-  }
-
-  
-
-  .hp-product-image {
-    margin-bottom: 40px;
-  }
-
-  /* =====================
-     PRODUCT INFO
-  ===================== */
-
-  .hp-product-name {
-    font-size: 0.82rem;
-    line-height: 1.35;
-
-    min-height: 36px;
-
-    margin-top: 0;
-    margin-bottom: 6px;
-  }
-
-  /* السعر */
-
-  .hp-scroll-item .price {
-    font-size: 0.88rem;
-  }
-
-  /* التقييم */
-
-  .hp-scroll-item .rating {
-    font-size: 0.72rem;
-  }
-
-  /* =====================
-     DISCOUNT
-  ===================== */
-
-  .hp-scroll-item .discount {
-    font-size: 10px;
-    padding: 3px 6px;
-  }
-
-  /* =====================
-     WISHLIST
-  ===================== */
-
-  .hp-wishlist-btn {
-    width: 29px;
-    height: 29px;
-
-    top: 6px;
-    right: 6px;
-  }
-
-  /* =====================
-     CATEGORIES
-  ===================== */
-
-  .hp-category-card {
-    padding: 10px 5px;
-    min-height: 80px;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-  }
-
-  .hp-category-icon {
-    width: 26px;
-    height: 26px;
-    margin-bottom: 5px;
-  }
-
-  .hp-category-name {
-    font-size: 0.7rem;
-    text-align: center;
-    line-height: 1.2;
-  }
-
-  /* =====================
-     COUNTDOWN
-  ===================== */
-
-  .hp-countdown {
-    gap: 5px !important;
-  }
-
-  .hp-countdown > div.text-center {
-    min-width: 28px;
-    font-size: 0.7rem;
-  }
-
-  /* =====================
-     ARROWS
-  ===================== */
-
   .hp-arrow {
-    width: 30px;
-    height: 30px;
-    top: 38%;
-    font-size: 14px;
-  }
-
-  .hp-arrow-left {
-    left: -5px;
-  }
-
-  .hp-arrow-right {
-    right: -5px;
+    width: 28px;
+    height: 28px;
   }
 }
+/* =========================
+   CATEGORY FILTER
+========================= */
 
-/* =====================================================
-   VERY SMALL PHONES
-===================================================== */
+.hp-category-card {
+  cursor: pointer;
+}
 
-@media (max-width: 380px) {
+.hp-category-card.active {
+  background-color: #db4444;
+  border-color: #db4444;
+}
 
-  .hp-container {
-    padding-left: 6px;
-    padding-right: 6px;
-  }
+.hp-category-card.active .hp-category-name {
+  color: #fff;
+}
 
-  .hp-scroll-item {
-    width: 150px;
-    min-width: 150px;
-  }
+.hp-category-card.active img {
+  filter: brightness(0) invert(1);
+}
 
-  .hp-product-image {
-    height: 135px;
-    margin-bottom: 38px;
-  }
-
-  .hp-product-image img {
-    max-width: 80%;
-    height: 110px;
-    max-height: 110px;
-  }
-
-  .hp-product-name {
-    font-size: 0.78rem;
-  }
-
-  .hp-section-title {
-    font-size: 1.1rem;
-  }
-
-  .hp-hero {
-    min-height: 140px;
-  }
-
-  .hp-hero-img {
-    height: 130px;
-  }
-
-  .hp-add-cart-btn {
-    height: 32px;
-    font-size: 0.68rem;
-  }
+.hp-filtered-section {
+  scroll-margin-top: 20px;
 }

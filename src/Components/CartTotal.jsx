@@ -5,8 +5,11 @@ import {
   Paper,
   Typography,
 } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 export default function CartTotal() {
+  const { t } = useTranslation();
+
   return (
     <Paper
     variant="outlined"
@@ -24,25 +27,25 @@ export default function CartTotal() {
         fontWeight={600}
         mb={2}
       >
-        Cart Total
+        {t("cartTotal")}
       </Typography>
 
       <Row
-        title="Subtotal:"
+        title={`${t("subtotal")}:`}
         value="$1750"
       />
 
       <Divider sx={{my:2 ,  borderBottom: "2px solid #5c5757",}}/>
 
       <Row
-        title="Shipping:"
-        value="Free"
+        title={`${t("shipping")}:`}
+        value={t("free")}
       />
 
       <Divider sx={{my:2 , borderBottom: "2px solid #5c5757",}}/>
 
       <Row
-        title="Total:"
+        title={`${t("total")}:`}
         value="$1750"
       />
 
@@ -61,7 +64,7 @@ export default function CartTotal() {
         bgcolor:"#DB4444"
     }}
       >
-        Proceed to checkout
+        {t("proceedToCheckout")}
       </Button>
 
     </Paper>
